@@ -1,0 +1,11 @@
+.vs
+bin
+obj
+*.csproj.vspscc
+*.user
+packages
+!Archive/**
+TestResults
+*.cache
+*.ncrunchproject
+nCrunchTemp*.*
