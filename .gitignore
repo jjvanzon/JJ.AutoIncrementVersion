@@ -7,3 +7,5 @@ packages
 !Archive/**
 TestResults
 *.cache
+*.ncrunchproject
+nCrunchTemp*.*
