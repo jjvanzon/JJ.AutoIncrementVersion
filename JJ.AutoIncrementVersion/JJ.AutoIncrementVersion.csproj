@@ -3,22 +3,25 @@
   <Import Project="build\JJ.AutoIncrementVersion.targets" />
   
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <TargetFrameworks>net9.0;net8.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <Version Condition="'$(BuildNum)'==''">2.0.0</Version>
     <Version Condition="'$(BuildNum)'!=''">2.0.$(BuildNum)</Version>
-    <AssemblyName>JJ.AutoIncrementVersion</AssemblyName>
     <Description>We miss our * but we can now use %24(BuildNum)</Description>
     <PackageTags>
       MSBuild; auto; increment; version; build; assemblyinfo; SemVer;
       package; packaging; pipeline; devops; autoincrement; semantic; versioning; assemblyversion; buildnumber; ci
     </PackageTags>
-    <Copyright>Copyright © Jan Joost van Zon 2025</Copyright>
-    <RepositoryUrl>
-      https://github.com/jjvanzon/JJ.Framework/tree/main/Framework/JJ.Framework.Versioning.Core
-    </RepositoryUrl>
-    <PackageProjectUrl>
-      https://github.com/jjvanzon/JJ.Framework/tree/main/Framework/JJ.Framework.Versioning.Core
-    </PackageProjectUrl>
+    <Authors>JJ van Zon</Authors>
+    <Copyright>Copyright © 2025 Jan Joost van Zon</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
+    <RepositoryUrl>https://github.com/jjvanzon/JJ.AutoIncrementVersion</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/jjvanzon/JJ.AutoIncrementVersion</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>jj-icon-64x64-margin4.png</PackageIcon>
   </PropertyGroup>
   
   <ItemGroup>
@@ -38,4 +41,21 @@
     </Content>
     -->
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="$(SolutionDir)\jj-icon-64x64-margin4.png" Visible="False">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="$(SolutionDir)\README.md" Visible="False">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

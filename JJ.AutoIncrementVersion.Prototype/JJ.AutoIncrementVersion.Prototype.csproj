@@ -15,7 +15,7 @@
     <Description>Demonstration of auto-incremental versioning as a copy-paste into your csproj, superseded by JJ.AutoIncrementVersion, which does it for you automatically.</Description>
     <PackageTags>demo; versioning</PackageTags>
     <Authors>JJ van Zon</Authors>
-    <Copyright>Copyright © Jan Joost van Zon 2025</Copyright>
+    <Copyright>Copyright © 2025 Jan Joost van Zon</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>    
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>

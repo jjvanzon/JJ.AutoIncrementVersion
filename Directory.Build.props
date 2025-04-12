@@ -12,24 +12,18 @@
 
   <!-- Project Properties -->
   
-  <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-    <Description>A JJ.Framework Component</Description>
-    <PackageTags>framework; architecture; utility</PackageTags>
-    <Authors>JJ van Zon</Authors>
-    <Copyright>Copyright © 2013 - 2025 Jan Joost van Zon</Copyright>
-    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>    
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <RepositoryUrl>https://github.com/jjvanzon/JJ.Framework</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/jjvanzon/JJ.Framework</PackageProjectUrl>
-    <PackageIcon>jj-icon-64x64-margin4.png</PackageIcon>
-  </PropertyGroup>
+  <!--<PropertyGroup>-->
+    <!--<Description>A JJ.Framework Component</Description>-->
+    <!--<PackageTags>framework; architecture; utility</PackageTags>-->
+    <!--<GenerateAssemblyInfo>True</GenerateAssemblyInfo>-->
+    <!--<RepositoryUrl>https://github.com/jjvanzon/JJ.Framework</RepositoryUrl>-->
+    <!--<PackageProjectUrl>https://github.com/jjvanzon/JJ.Framework</PackageProjectUrl>-->
+    <!--<PackageIcon>jj-icon-64x64-margin4.png</PackageIcon>-->
+  <!--</PropertyGroup>-->
 
   <!-- Icon -->
   
+  <!--
   <ItemGroup>
     <Content Include="$(SolutionDir)\jj-icon-64x64-margin4.png" Visible="False">
       <Pack>True</Pack>
@@ -37,9 +31,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
+  -->
+  
   <!-- README -->
   
+  <!--
   <PropertyGroup Condition="!Exists('$(MSBuildProjectDirectory)/README.MD')">
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
@@ -63,5 +59,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
+  -->
 </Project>
