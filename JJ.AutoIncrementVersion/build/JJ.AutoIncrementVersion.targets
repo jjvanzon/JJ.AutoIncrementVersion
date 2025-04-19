@@ -64,7 +64,7 @@
   </PropertyGroup>
   <Warning Text="$(DirPropsWarning)" Condition="Exists('$(DirProps)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
 
-  <!-- Write Directory.Build.props -->
+  <!-- Create Directory.Build.props -->
            <Message Condition="!Exists('$(DirProps)')" Text="$(Init) => &quot;$(DirProps)&quot;" Importance="High" />
   <WriteLinesToFile Condition="!Exists('$(DirProps)')" File="$(DirProps)" Lines="$(DirPropsContent)" ContinueOnError="True" />
 
