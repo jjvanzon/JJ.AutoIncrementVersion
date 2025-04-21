@@ -17,4 +17,12 @@
   
   <Message Text="$(DllVariables)" Importance="High" />
 </Target>
+
+
+<!--<Target Condition="$(DllAvailable) And '$(ItRanjj)'==''" 
+        Name="JJ_AutoIncrementVersion_Target" 
+        BeforeTargets="$(Targets)">-->
+
+        <!--<PropertyGroup><DisableFastUpToDateCheck>True</DisableFastUpToDateCheck></PropertyGroup>-->
+
 ```

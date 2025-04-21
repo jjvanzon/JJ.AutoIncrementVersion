@@ -57,14 +57,14 @@
   <Message Text="$(VariablesMessage)" Importance="High" />
 </Target>
 
-<!-- IMPORT C# TASK-->
+<!-- IMPORT DLL -->
 
 <Target Condition="!$(DllAvailable)" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(Targets)">
   <Message Text="$(ToolTitle) ⚠️ WARNING ⚠️ DLL not found. Build again." Importance="High" />
 </Target>
 <UsingTask TaskName="JJ.AutoIncrementVersion.WriteLinesNoTimestamp" AssemblyFile="$(DllDir)" Condition="$(DllAvailable)" />
 
-<!-- IMPORT BUILDNUM.XML -->
+<!-- IMPORT BUILDNUM XML -->
   
 <Import Project="$(Xml)" Condition="'$(XmlImportedjj)'=='' And Exists('$(Xml)')" />
 <PropertyGroup>
@@ -73,20 +73,21 @@
 
 <!-- RUN BUILD STEPS -->
 
-<!--<Target Condition="$(DllAvailable) And '$(ItRanjj)'==''" 
-        Name="JJ_AutoIncrementVersion_Target" 
-        BeforeTargets="$(Targets)">-->
-
-<Target Condition="'$(ItRanjj)'==''" Name="JJ_AutoIncrementVersion_Target" 
+<Target Condition="'$(ItRanjj)'==''" Name="JJ_AutoInc_BuildSteps" 
         BeforeTargets="$(Targets)">
   <PropertyGroup><ItRanjj>True</ItRanjj></PropertyGroup>
 
-  <!-- INIT DIRECTORY.BUILD.PROPS -->
+  <!-- DIRECTORY.BUILD.PROPS -->
     
-  <!-- Auto-create Directory.Build.props. -->
+  <!-- Auto-create directory.build.props. -->
   <!-- (Fallback working before package restore and after uninstall.) -->
 
-  <!-- Build Content -->
+  <!-- Read existing -->
+  <ReadLinesFromFile File="$(DirProps)" Condition="Exists('$(DirProps)')" ContinueOnError="True" >
+    <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
+  </ReadLinesFromFile>
+
+  <!-- Build content -->
   <PropertyGroup>
     <DirPropsInnerContent>
       <Import Project="$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('$(XmlName)')"/>
@@ -96,12 +97,7 @@
     </DirPropsContent>
   </PropertyGroup>
 
-  <!-- Read Existing Content -->
-  <ReadLinesFromFile File="$(DirProps)" Condition="Exists('$(DirProps)')" ContinueOnError="True" >
-    <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
-  </ReadLinesFromFile>
-
-  <!-- Warn Missing Content -->
+  <!-- Warn missing content -->
   <PropertyGroup>
     <DirPropsWarning>$(ToolTitle) ⚠️ WARNING ⚠️ 
      DIRECTORY.BUILD.PROPS OUT OF DATE!
@@ -111,11 +107,11 @@
   </PropertyGroup>
   <Warning Text="$(DirPropsWarning)" Condition="Exists('$(DirProps)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
 
-  <!-- Create Directory.Build.props -->
+  <!-- Create directory.build.props -->
            <Message Condition="!Exists('$(DirProps)')" Text="$(Init) => &quot;$(DirProps)&quot;" Importance="High" />
   <WriteLinesToFile Condition="!Exists('$(DirProps)')" File="$(DirProps)" Lines="$(DirPropsContent)" ContinueOnError="True" />
 
-  <!-- LOG CONTENT -->
+  <!-- LOG EXISTING CONTENT -->
   
   <ReadLinesFromFile File="$(DirProps)" Condition="Exists('$(DirProps)')" ContinueOnError="True" >
     <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
@@ -135,10 +131,11 @@
   <!-- INCREMENT -->
   
   <PropertyGroup>
+    
     <!-- Increment -->
     <BuildNum>$([MSBuild]::Add($(BuildNum), 1))</BuildNum> 
     
-    <!-- New XML content -->
+    <!-- Build new content -->
     <XmlContent>
       <Project>
         <PropertyGroup>
@@ -152,20 +149,19 @@
     <PropsContent>
       <Project>
         <PropertyGroup Condition="'%24(BuildNum)'==''"><BuildNum>$(BuildNum)</BuildNum></PropertyGroup>
-        <!--<PropertyGroup><DisableFastUpToDateCheck>True</DisableFastUpToDateCheck></PropertyGroup>-->
       </Project>
     </PropsContent>
     
   </PropertyGroup>
 
-  <!-- LOADED ? -->
+  <!-- Log buildnum + sources -->
   
   <Message Text="$(Load) $(BuildNum) &lt;= .xml + 1 ?? (&quot;$(Xml)&quot;)" Importance="High" />
   <Message Text="$(Load) $(BuildNum) &lt;= .props + 1 ?? (&quot;$(Props)&quot;)" Importance="High" />
 
   <!-- SAVE -->
   
-  <!-- Updated XML -->
+  <!-- Updated xml -->
   <Message Text="$(Save) $(BuildNum) => .xml &quot;$(Xml)&quot;" Importance="High" />
   <WriteLinesToFile File="$(Xml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
   
