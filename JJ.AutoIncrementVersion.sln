@@ -9,10 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		BuildNum.xml = BuildNum.xml
-		Directory.Build.props = Directory.Build.props
 		NuGet.config = NuGet.config
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJ.AutoIncrementVersion.Tasks", "JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj", "{286D0BC3-2C83-439E-9C2E-401E8B3B983E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +25,10 @@ Global
 		{26D21849-C2A4-9DEC-1F21-3A8397EEAC21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26D21849-C2A4-9DEC-1F21-3A8397EEAC21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26D21849-C2A4-9DEC-1F21-3A8397EEAC21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

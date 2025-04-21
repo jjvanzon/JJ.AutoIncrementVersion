@@ -155,7 +155,6 @@
   </PropertyGroup>
 
   <!-- Log buildnum + sources -->
-  
   <Message Text="$(Load) $(BuildNum) &lt;= .xml + 1 ?? (&quot;$(Xml)&quot;)" Importance="High" />
   <Message Text="$(Load) $(BuildNum) &lt;= .props + 1 ?? (&quot;$(Props)&quot;)" Importance="High" />
 
