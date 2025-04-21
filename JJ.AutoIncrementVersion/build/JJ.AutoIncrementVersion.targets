@@ -1,9 +1,9 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;Xml;XmlContent;XmlReadOut;Props;PropsName;PropsContent;PropsReadOut;DirProps;DirPropsContent;DirPropsInnerContent;DirPropsWarning;DirPropsReadOut">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;Props;DirProps;Targets;DllDirDev;DllDirProd;DllDir;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
   
-<!-- Vars -->
+<!-- VARS -->
 
 <PropertyGroup>
-  <ToolTitle>JJ-AUTO-INC-VER</ToolTitle>
+  <ToolTitle>JJ-AUTO-INC</ToolTitle>
        <Init>$(ToolTitle) INIT</Init>
     <Content>$(ToolTitle) CONTENT</Content>
        <Load>$(ToolTitle) LOAD</Load>
@@ -12,29 +12,76 @@
 </PropertyGroup>
 
 <PropertyGroup>
-    <ProjDir>$(MSBuildProjectDirectory)/</ProjDir>
-    <PackDir>$(MSBuildThisFileDirectory)</PackDir>
-    <XmlName>BuildNum.xml</XmlName>
-  <PropsName>JJ.AutoIncrementVersion.props</PropsName>
-        <Xml>$(ProjDir)../$(XmlName)</Xml>
-      <Props>$(PackDir)$(PropsName)</Props>
-   <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
+     <ProjDir>$(MSBuildProjectDirectory)/</ProjDir>
+     <PackDir>$(MSBuildThisFileDirectory)</PackDir>
+     <XmlName>BuildNum.xml</XmlName>
+   <PropsName>JJ.AutoIncrementVersion.props</PropsName>
+         <Xml>$(ProjDir)../$(XmlName)</Xml>
+       <Props>$(PackDir)$(PropsName)</Props>
+    <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
+     <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
 </PropertyGroup>
   
-<!-- IMPORT BuildNum.xml -->
+<PropertyGroup>
+  <DllDirDev>$(MSBuildThisFileDirectory)../bin/$(Configuration)/$(TargetFramework)/$(MSBuildProjectName).dll</DllDirDev>
+  <DllDirProd>$(MSBuildThisFileDirectory)../lib/netstandard2.0/$(MSBuildProjectName).dll</DllDirProd>
+  <DllDir Condition="Exists('$(DllDirProd)')">$(DllDirProd)</DllDir>
+  <DllDir Condition="Exists('$(DllDirDev)')">$(DllDirDev)</DllDir>
+  <DllAvailable Condition="!Exists('$(DllDir)')">False</DllAvailable>
+  <DllAvailable Condition="Exists('$(DllDir)')">True</DllAvailable>
+</PropertyGroup>
+
+<Target Name="JJ_AutoInc_LogVars" BeforeTargets="$(Targets)">
+  <PropertyGroup>
+  <VariablesMessage>$(ToolTitle) VARS
+  ToolTitle = $(ToolTitle)
+  Init = $(Init)
+  Content = $(Content)
+  Load = $(Load)
+  Save = $(Save)
+  Stage = $(Stage)
+  ProjDir = $(ProjDir)
+  PackDir = $(PackDir)
+  XmlName = $(XmlName)
+  PropsName = $(PropsName)
+  Xml = $(Xml)
+  Props = $(Props)
+  DirProps = $(DirProps)
+  Targets = $(Targets)
+  DllDirProd = $(DllDirProd)
+  DllDirDev = $(DllDirDev)
+  DllDir = $(DllDir)
+  DllAvailable = $(DllAvailable)
+  </VariablesMessage>
+  </PropertyGroup>
+  <Message Text="$(VariablesMessage)" Importance="High" />
+</Target>
+
+<!-- IMPORT C# TASK-->
+
+<Target Condition="!$(DllAvailable)" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(Targets)">
+  <Message Text="$(ToolTitle) ⚠️ WARNING ⚠️ DLL not found. Build again." Importance="High" />
+</Target>
+<UsingTask TaskName="JJ.AutoIncrementVersion.WriteLinesNoTimestamp" AssemblyFile="$(DllDir)" Condition="$(DllAvailable)" />
+
+<!-- IMPORT BUILDNUM.XML -->
   
 <Import Project="$(Xml)" Condition="'$(XmlImportedjj)'=='' And Exists('$(Xml)')" />
 <PropertyGroup>
   <BuildNum Condition="'$(BuildNum)'==''">0</BuildNum> <!-- Default 0 -->
 </PropertyGroup>
 
-<!-- BEFORE BUILD -->
-  
+<!-- RUN BUILD STEPS -->
+
+<!--<Target Condition="$(DllAvailable) And '$(ItRanjj)'==''" 
+        Name="JJ_AutoIncrementVersion_Target" 
+        BeforeTargets="$(Targets)">-->
+
 <Target Condition="'$(ItRanjj)'==''" Name="JJ_AutoIncrementVersion_Target" 
-        BeforeTargets="BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources">
+        BeforeTargets="$(Targets)">
   <PropertyGroup><ItRanjj>True</ItRanjj></PropertyGroup>
 
-  <!-- INIT Directory.Build.props -->
+  <!-- INIT DIRECTORY.BUILD.PROPS -->
     
   <!-- Auto-create Directory.Build.props. -->
   <!-- (Fallback working before package restore and after uninstall.) -->
@@ -127,5 +174,7 @@
   <!-- To package bound .props location, to import BuildNum early enough for use in csproj. --> 
   <Message Text="$(Stage) $(BuildNum) => .props &quot;$(Props)&quot;" Importance="High"  />
   <WriteLinesToFile File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+  <!--<WriteLinesNoTimestamp File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"
+    Condition="$(DllAvailable)"/>-->
 </Target>
 </Project>
