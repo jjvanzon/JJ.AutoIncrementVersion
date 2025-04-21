@@ -4,7 +4,7 @@
     <LangVersion>latest</LangVersion>
     <TargetFrameworks>net9.0;net8.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <!--<Nullable>enable</Nullable>-->
     <Version Condition="'$(BuildNum)'==''">2.1.0</Version>
     <Version Condition="'$(BuildNum)'!=''">2.1.$(BuildNum)</Version>
     <Description>Supporting package for JJ.AutoIncrementVersion. Not intended for direct use.</Description>

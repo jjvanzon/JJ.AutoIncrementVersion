@@ -1,4 +1,4 @@
-﻿namespace JJ.AutoIncrementVersion;
+﻿namespace JJ.AutoIncrementVersion.Tasks;
 
 internal static class Constants
 {

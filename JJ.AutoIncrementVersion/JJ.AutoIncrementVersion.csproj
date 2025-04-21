@@ -65,4 +65,8 @@
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj" />
+  </ItemGroup>
+
 </Project>

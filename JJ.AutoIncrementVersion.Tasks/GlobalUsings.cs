@@ -6,5 +6,6 @@ global using Microsoft.Build.Framework;
 global using Microsoft.Build.Tasks;
 global using Microsoft.Build.Utilities;
 global using static System.IO.File;
-global using static JJ.AutoIncrementVersion.Constants;
+global using static JJ.AutoIncrementVersion.Tasks.Constants;
 global using static Microsoft.Build.Framework.MessageImportance;
+global using Task = Microsoft.Build.Utilities.Task;

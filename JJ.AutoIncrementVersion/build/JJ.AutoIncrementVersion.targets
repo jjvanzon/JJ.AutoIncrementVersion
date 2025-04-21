@@ -23,8 +23,8 @@
 </PropertyGroup>
   
 <PropertyGroup>
-  <DllDirDev>$(MSBuildThisFileDirectory)../bin/$(Configuration)/$(TargetFramework)/$(MSBuildProjectName).dll</DllDirDev>
-  <DllDirProd>$(MSBuildThisFileDirectory)../lib/netstandard2.0/$(MSBuildProjectName).dll</DllDirProd>
+  <DllDirDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(TargetFramework)/JJ.AutoIncrementVersion.Tasks.dll</DllDirDev>
+  <DllDirProd>$(MSBuildThisFileDirectory)../lib/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDirProd>
   <DllDir Condition="Exists('$(DllDirProd)')">$(DllDirProd)</DllDir>
   <DllDir Condition="Exists('$(DllDirDev)')">$(DllDirDev)</DllDir>
   <DllAvailable Condition="!Exists('$(DllDir)')">False</DllAvailable>
@@ -48,8 +48,8 @@
   Props = $(Props)
   DirProps = $(DirProps)
   Targets = $(Targets)
-  DllDirProd = $(DllDirProd)
   DllDirDev = $(DllDirDev)
+  DllDirProd = $(DllDirProd)
   DllDir = $(DllDir)
   DllAvailable = $(DllAvailable)
   </VariablesMessage>
@@ -62,7 +62,7 @@
 <Target Condition="!$(DllAvailable)" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(Targets)">
   <Message Text="$(ToolTitle) ⚠️ WARNING ⚠️ DLL not found. Build again." Importance="High" />
 </Target>
-<UsingTask TaskName="JJ.AutoIncrementVersion.WriteLinesNoTimestamp" AssemblyFile="$(DllDir)" Condition="$(DllAvailable)" />
+<UsingTask TaskName="JJ.AutoIncrementVersion.Tasks.WriteLinesNoTimestamp" AssemblyFile="$(DllDir)" Condition="$(DllAvailable)" />
 
 <!-- IMPORT BUILDNUM XML -->
   

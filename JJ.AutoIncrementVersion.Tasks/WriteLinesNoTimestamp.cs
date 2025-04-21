@@ -1,5 +1,4 @@
-﻿
-namespace JJ.AutoIncrementVersion;
+﻿namespace JJ.AutoIncrementVersion.Tasks;
 
 public class WriteLinesNoTimestamp : Task
 {
