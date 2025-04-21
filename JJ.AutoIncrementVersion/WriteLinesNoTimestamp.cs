@@ -3,6 +3,8 @@ namespace JJ.AutoIncrementVersion;
 
 public class WriteLinesNoTimestamp : Task
 {
+    private const string TaskTitle = $"{ToolTitle} {nameof(WriteLinesNoTimestamp)}";
+
     /// <inheritdoc cref="WriteLinesToFile.File" />
     [Required]
     public ITaskItem File { get; set; }
@@ -31,13 +33,15 @@ public class WriteLinesNoTimestamp : Task
     {
         try
         {
+            Log.LogMessage(High, $"{TaskTitle} START");
+            
             string path = File?.ItemSpec;
             DateTime timeStamp = default;
 
             if (Exists(path))
             {
                 timeStamp = GetLastWriteTimeUtc(path);
-                Log.LogMessage(High, $"{ToolTitle} TIMESTAMP READ {timeStamp} <= {path}");
+                Log.LogMessage(High, $"{TaskTitle} GET {timeStamp} <= {path}");
             }
 
             var innerTask = new WriteLinesToFile
@@ -58,7 +62,7 @@ public class WriteLinesNoTimestamp : Task
             if (timeStamp != default)
             {
                 SetLastWriteTimeUtc(path, timeStamp);
-                Log.LogMessage(High, $"{ToolTitle} TIMESTAMP WRITE {timeStamp} => {path}");
+                Log.LogMessage(High, $"{TaskTitle} SET {timeStamp} => {path}");
             }
 
             return true;

@@ -2,5 +2,5 @@
 
 internal static class Constants
 {
-    public const string ToolTitle = "JJ-AUTO-INC-VER";
+    public const string ToolTitle = "JJ-AUTO-INC";
 }
