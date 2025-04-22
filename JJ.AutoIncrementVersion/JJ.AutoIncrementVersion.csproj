@@ -8,8 +8,8 @@
     <!--<TargetFrameworks>net9.0;net8.0</TargetFrameworks>-->
     <!--<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net5.0;net461</TargetFrameworks>-->
     <TargetFrameworks>net9.0;net8.0;netstandard2.1;netstandard2.0</TargetFrameworks>
-    <Version Condition="'$(BuildNum)'==''">2.1.0</Version>
-    <Version Condition="'$(BuildNum)'!=''">2.1.$(BuildNum)</Version>
+    <Version Condition="'$(BuildNum)'==''">2.2.0</Version>
+    <Version Condition="'$(BuildNum)'!=''">2.2.$(BuildNum)</Version>
     <Description>We miss our * but we can now use %24(BuildNum)</Description>
     <PackageTags>
       MSBuild; auto; increment; version; build; assemblyinfo; SemVer;

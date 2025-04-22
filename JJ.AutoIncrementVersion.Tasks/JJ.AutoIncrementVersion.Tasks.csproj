@@ -18,8 +18,8 @@
     </TargetFrameworks>-->
     <ImplicitUsings>enable</ImplicitUsings>
     <!--<Nullable>enable</Nullable>-->
-    <Version Condition="'$(BuildNum)'==''">2.1.0</Version>
-    <Version Condition="'$(BuildNum)'!=''">2.1.$(BuildNum)</Version>
+    <Version Condition="'$(BuildNum)'==''">2.2.0</Version>
+    <Version Condition="'$(BuildNum)'!=''">2.2.$(BuildNum)</Version>
     <Description>Supporting package for JJ.AutoIncrementVersion. Not intended for direct use.</Description>
     <Authors>JJ van Zon</Authors>
     <Copyright>Copyright © 2025 Jan Joost van Zon</Copyright>
