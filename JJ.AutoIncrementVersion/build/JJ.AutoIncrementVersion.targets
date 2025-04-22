@@ -25,8 +25,8 @@
 <PropertyGroup>
   <DllTfmOlder>net48</DllTfmOlder>
   <DllTfmMono>net462</DllTfmMono>
-  <DllTfmCore>netstandard2.0</DllTfmCore>
-  <DllTfmFull>net7.0</DllTfmFull> <!-- In Visual Studio -->
+  <DllTfmCore>net7.0</DllTfmCore>
+  <DllTfmFull>netstandard2.0</DllTfmFull> <!-- In Visual Studio -->
   <DllTfm>$(DllTfmOlder)</DllTfm>
   <DllTfm Condition="'$(MSBuildRuntimeType)'=='Mono'">$(DllTfmMono)</DllTfm>
   <DllTfm Condition="'$(MSBuildRuntimeType)'=='Core'">$(DllTfmCore)</DllTfm>
@@ -34,7 +34,7 @@
 
   <!--<DllTfm Condition=" '$(MSBuildRuntimeType)' != 'Core' ">netstandard2.0</DllTfm>
   <DllTfm Condition=" '$(MSBuildRuntimeType)' == 'Core' ">net6.0</DllTfm>-->
-  <DllTfm>netstandard2.0</DllTfm>
+  <!--<DllTfm>net48</DllTfm>-->
   
   <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
   <DllProd>$(MSBuildThisFileDirectory)../lib/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllProd>
@@ -186,8 +186,11 @@
   
   <!-- To package bound .props location, to import BuildNum early enough for use in csproj. --> 
   <Message Text="$(Stage) $(BuildNum) => .props &quot;$(Props)&quot;" Importance="High"  />
-  <!--<WriteLinesToFile File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />-->
-  <WriteLinesNoTimestamp File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"
-    Condition="$(DllAvailable)"/>
+  <WriteLinesToFile 
+    Condition="!$(DllAvailable)" 
+    File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+  <WriteLinesNoTimestamp 
+    Condition="$(DllAvailable)" 
+    File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
 </Target>
 </Project>
