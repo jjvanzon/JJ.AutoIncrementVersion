@@ -26,7 +26,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>jj-icon-64x64-margin4.png</PackageIcon>
     <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
-    <CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>
+    <!--<CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>-->
     <DevelopmentAssembly>True</DevelopmentAssembly>
   </PropertyGroup>
   
