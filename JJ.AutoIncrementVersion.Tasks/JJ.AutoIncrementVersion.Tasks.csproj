@@ -2,7 +2,13 @@
 
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <TargetFrameworks>net9.0;net8.0;netstandard2.1;netstandard2.0</TargetFrameworks>
+    <!--<TargetFrameworks>net7.0</TargetFrameworks>-->
+    <!--<TargetFrameworks>
+      net9.0;net8.0;net7.0;
+      net481;net48;net472;net471;net47;net462;net461;
+      netstandard2.1;netstandard2.0
+    </TargetFrameworks>-->
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <!--<Nullable>enable</Nullable>-->
     <Version Condition="'$(BuildNum)'==''">2.1.0</Version>
@@ -18,6 +24,8 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>jj-icon-64x64-margin4.png</PackageIcon>
+    <CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>
+    <DevelopmentAssembly>True</DevelopmentAssembly>
   </PropertyGroup>
 
   <ItemGroup>

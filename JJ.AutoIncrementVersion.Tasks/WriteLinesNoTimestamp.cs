@@ -2,8 +2,6 @@
 
 public class WriteLinesNoTimestamp : Task
 {
-    private const string TaskTitle = $"{ToolTitle} {nameof(WriteLinesNoTimestamp)}";
-
     /// <inheritdoc cref="WriteLinesToFile.File" />
     [Required]
     public ITaskItem File { get; set; }
@@ -32,7 +30,7 @@ public class WriteLinesNoTimestamp : Task
     {
         try
         {
-            Log.LogMessage(High, $"{TaskTitle} START");
+            Log.LogMessage(High, $"{ToolTitle} {GetType().Name} START");
             
             string path = File?.ItemSpec;
             DateTime timeStamp = default;
@@ -40,7 +38,7 @@ public class WriteLinesNoTimestamp : Task
             if (Exists(path))
             {
                 timeStamp = GetLastWriteTimeUtc(path);
-                Log.LogMessage(High, $"{TaskTitle} GET {timeStamp} <= {path}");
+                Log.LogMessage(High, $"{ToolTitle} TIMESTAMP GET {timeStamp} <= {path}");
             }
 
             var innerTask = new WriteLinesToFile
@@ -53,7 +51,7 @@ public class WriteLinesNoTimestamp : Task
                 WriteOnlyWhenDifferent = WriteOnlyWhenDifferent,
                 FailIfNotIncremental = FailIfNotIncremental
             };
-           if (!innerTask.Execute())
+            if (!innerTask.Execute())
             {
                 return false;
             }
@@ -61,7 +59,7 @@ public class WriteLinesNoTimestamp : Task
             if (timeStamp != default)
             {
                 SetLastWriteTimeUtc(path, timeStamp);
-                Log.LogMessage(High, $"{TaskTitle} SET {timeStamp} => {path}");
+                Log.LogMessage(High, $"{ToolTitle} TIMESTAMP SET {timeStamp} => {path}");
             }
 
             return true;

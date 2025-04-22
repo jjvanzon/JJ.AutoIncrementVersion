@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;Props;DirProps;Targets;DllDirDev;DllDirProd;DllDir;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;Props;DirProps;Targets;DllDev;DllDevCore;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
   
 <!-- VARS -->
 
@@ -23,12 +23,25 @@
 </PropertyGroup>
   
 <PropertyGroup>
-  <DllDirDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(TargetFramework)/JJ.AutoIncrementVersion.Tasks.dll</DllDirDev>
-  <DllDirProd>$(MSBuildThisFileDirectory)../lib/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDirProd>
-  <DllDir Condition="Exists('$(DllDirProd)')">$(DllDirProd)</DllDir>
-  <DllDir Condition="Exists('$(DllDirDev)')">$(DllDirDev)</DllDir>
-  <DllAvailable Condition="!Exists('$(DllDir)')">False</DllAvailable>
-  <DllAvailable Condition="Exists('$(DllDir)')">True</DllAvailable>
+  <DllTfmOlder>net48</DllTfmOlder>
+  <DllTfmMono>net462</DllTfmMono>
+  <DllTfmCore>netstandard2.0</DllTfmCore>
+  <DllTfmFull>net7.0</DllTfmFull> <!-- In Visual Studio -->
+  <DllTfm>$(DllTfmOlder)</DllTfm>
+  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Mono'">$(DllTfmMono)</DllTfm>
+  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Core'">$(DllTfmCore)</DllTfm>
+  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Full'">$(DllTfmFull)</DllTfm>
+
+  <!--<DllTfm Condition=" '$(MSBuildRuntimeType)' != 'Core' ">netstandard2.0</DllTfm>
+  <DllTfm Condition=" '$(MSBuildRuntimeType)' == 'Core' ">net6.0</DllTfm>-->
+  <DllTfm>netstandard2.0</DllTfm>
+  
+  <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
+  <DllProd>$(MSBuildThisFileDirectory)../lib/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllProd>
+  <Dll Condition="Exists('$(DllProd)')">$(DllProd)</Dll>
+  <Dll Condition="Exists('$(DllDev)')">$(DllDev)</Dll>
+  <DllAvailable Condition="!Exists('$(Dll)')">False</DllAvailable>
+  <DllAvailable Condition="Exists('$(Dll)')">True</DllAvailable>
 </PropertyGroup>
 
 <Target Name="JJ_AutoInc_LogVars" BeforeTargets="$(Targets)">
@@ -48,9 +61,14 @@
   Props = $(Props)
   DirProps = $(DirProps)
   Targets = $(Targets)
-  DllDirDev = $(DllDirDev)
-  DllDirProd = $(DllDirProd)
-  DllDir = $(DllDir)
+  DllTfmOlder = $(DllTfmOlder)
+  DllTfmMono = $(DllTfmMono)
+  DllTfmCore = $(DllTfmCore)
+  DllTfmFull = $(DllTfmFull)
+  DllTfm = $(DllTfm)
+  DllDev = $(DllDev)
+  DllProd = $(DllProd)
+  Dll = $(Dll)
   DllAvailable = $(DllAvailable)
   </VariablesMessage>
   </PropertyGroup>
@@ -60,9 +78,9 @@
 <!-- IMPORT DLL -->
 
 <Target Condition="!$(DllAvailable)" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(Targets)">
-  <Message Text="$(ToolTitle) ⚠️ WARNING ⚠️ DLL not found. Build again." Importance="High" />
+  <Message Text="$(ToolTitle) ⚠️ WARNING ⚠️ DLL not found." Importance="High" />
 </Target>
-<UsingTask TaskName="JJ.AutoIncrementVersion.Tasks.WriteLinesNoTimestamp" AssemblyFile="$(DllDir)" Condition="$(DllAvailable)" />
+<UsingTask TaskName="JJ.AutoIncrementVersion.Tasks.WriteLinesNoTimestamp" AssemblyFile="$(Dll)" Condition="$(DllAvailable)" />
 
 <!-- IMPORT BUILDNUM XML -->
   
@@ -168,8 +186,8 @@
   
   <!-- To package bound .props location, to import BuildNum early enough for use in csproj. --> 
   <Message Text="$(Stage) $(BuildNum) => .props &quot;$(Props)&quot;" Importance="High"  />
-  <WriteLinesToFile File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
-  <!--<WriteLinesNoTimestamp File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"
-    Condition="$(DllAvailable)"/>-->
+  <!--<WriteLinesToFile File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />-->
+  <WriteLinesNoTimestamp File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"
+    Condition="$(DllAvailable)"/>
 </Target>
 </Project>
