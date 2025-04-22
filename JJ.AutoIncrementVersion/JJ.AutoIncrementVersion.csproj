@@ -36,11 +36,19 @@
       <PackagePath>\build</PackagePath>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    <!--
+
     <None Include="JJ.AutoIncrementVersion.props">
       <Pack>True</Pack>
       <PackagePath>\build</PackagePath>
     </None>
+    
+    <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">
+      <Pack>True</Pack>
+      <PackagePath>\build</PackagePath>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    
+    <!--
     <Content Include="build\JJ.AutoIncrementVersion.props">
       <Pack>False</Pack>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -65,13 +73,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Build.Framework" Version="17.13.9" />
-    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.13.9" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj" />
+    <ProjectReference 
+      Include="..\JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj"
+      PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

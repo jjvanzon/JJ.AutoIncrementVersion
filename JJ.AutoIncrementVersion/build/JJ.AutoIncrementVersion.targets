@@ -35,7 +35,8 @@
   <DllTfm Condition=" '$(MSBuildRuntimeType)' == 'Core' ">net6.0</DllTfm>-->
   <DllTfm>netstandard2.0</DllTfm>
   <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
-  <DllProd>$(MSBuildThisFileDirectory)../lib/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllProd>
+  <!--<DllProd>$(MSBuildThisFileDirectory)../lib/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllProd>-->
+  <DllProd>$(PackDir)JJ.AutoIncrementVersion.Tasks.dll</DllProd>
   <Dll Condition="Exists('$(DllProd)')">$(DllProd)</Dll>
   <Dll Condition="Exists('$(DllDev)')">$(DllDev)</Dll>
   <DllAvailable Condition="!Exists('$(Dll)')">False</DllAvailable>

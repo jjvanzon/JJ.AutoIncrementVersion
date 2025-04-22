@@ -45,4 +45,19 @@
   Dll = $(Dll)
   DllAvailable = $(DllAvailable)
 
+
+    <!--<PackFile Include="$(OutputDir)\JJ.AutoIncrementVersion.Tasks.dll"
+              PackagePath="build\" />-->
+    
+    <!--<PackFile Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll"
+              PackagePath="build\" />-->
+
+
+    <!--<PackFile 
+      Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll"
+      PackagePath="build/" />-->
+
+      <!--ReferenceOutputAssembly="false"
+      OutputItemType="Build"--> 
+
 ```
