@@ -23,19 +23,17 @@
 </PropertyGroup>
   
 <PropertyGroup>
-  <DllTfmOlder>net48</DllTfmOlder>
+  <!--<DllTfmOlder>net48</DllTfmOlder>
   <DllTfmMono>net462</DllTfmMono>
   <DllTfmCore>net7.0</DllTfmCore>
-  <DllTfmFull>netstandard2.0</DllTfmFull> <!-- In Visual Studio -->
+  <DllTfmFull>netstandard2.0</DllTfmFull> --><!-- In Visual Studio --><!--
   <DllTfm>$(DllTfmOlder)</DllTfm>
   <DllTfm Condition="'$(MSBuildRuntimeType)'=='Mono'">$(DllTfmMono)</DllTfm>
   <DllTfm Condition="'$(MSBuildRuntimeType)'=='Core'">$(DllTfmCore)</DllTfm>
-  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Full'">$(DllTfmFull)</DllTfm>
-
+  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Full'">$(DllTfmFull)</DllTfm>-->
   <!--<DllTfm Condition=" '$(MSBuildRuntimeType)' != 'Core' ">netstandard2.0</DllTfm>
   <DllTfm Condition=" '$(MSBuildRuntimeType)' == 'Core' ">net6.0</DllTfm>-->
-  <!--<DllTfm>net48</DllTfm>-->
-  
+  <DllTfm>netstandard2.0</DllTfm>
   <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
   <DllProd>$(MSBuildThisFileDirectory)../lib/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllProd>
   <Dll Condition="Exists('$(DllProd)')">$(DllProd)</Dll>
