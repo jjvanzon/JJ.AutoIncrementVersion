@@ -5,16 +5,16 @@
     <!--<TargetFrameworks>
       net9.0;net8.0;netstandard2.1;netstandard2.0
     </TargetFrameworks>-->
-    <TargetFrameworks>
+    <!--<TargetFrameworks>
       net9.0;net8.0;net7.0;
       net481;net48;net472;net471;net47;net462;net461;
       netstandard2.1;netstandard2.0
-    </TargetFrameworks>
-    <!--<TargetFrameworks>
+    </TargetFrameworks>-->
+    <TargetFrameworks>
       net9.0;net8.0;net7.0;
       net481;net48;net472;net471;net47;net462;
       netstandard2.1;netstandard2.0
-    </TargetFrameworks>-->
+    </TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <!--<Nullable>enable</Nullable>-->
     <Version Condition="'$(BuildNum)'==''">2.1.0</Version>
