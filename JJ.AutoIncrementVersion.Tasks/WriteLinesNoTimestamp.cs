@@ -30,8 +30,6 @@ public class WriteLinesNoTimestamp : Task
     {
         try
         {
-            Log.LogMessage(High, $"{ToolTitle} {GetType().Name} START");
-            
             string path = File?.ItemSpec;
             DateTime timeStamp = default;
 
@@ -40,6 +38,8 @@ public class WriteLinesNoTimestamp : Task
                 timeStamp = GetLastWriteTimeUtc(path);
                 Log.LogMessage(High, $"{ToolTitle} TIMESTAMP GET {timeStamp} <= {path}");
             }
+
+            Log.LogMessage(High, $"{ToolTitle} WRITE FILE => {path}");
 
             var innerTask = new WriteLinesToFile
             {
