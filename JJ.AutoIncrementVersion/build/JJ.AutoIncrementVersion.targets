@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;Props;DirProps;Targets;DllDev;DllDevCore;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
   
 <!-- VARS -->
 
@@ -23,19 +23,7 @@
 </PropertyGroup>
   
 <PropertyGroup>
-  <!--<DllTfmOlder>net48</DllTfmOlder>
-  <DllTfmMono>net462</DllTfmMono>
-  <DllTfmCore>net7.0</DllTfmCore>
-  <DllTfmFull>netstandard2.0</DllTfmFull> --><!-- In Visual Studio --><!--
-  <DllTfm>$(DllTfmOlder)</DllTfm>
-  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Mono'">$(DllTfmMono)</DllTfm>
-  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Core'">$(DllTfmCore)</DllTfm>
-  <DllTfm Condition="'$(MSBuildRuntimeType)'=='Full'">$(DllTfmFull)</DllTfm>-->
-  <!--<DllTfm Condition=" '$(MSBuildRuntimeType)' != 'Core' ">netstandard2.0</DllTfm>
-  <DllTfm Condition=" '$(MSBuildRuntimeType)' == 'Core' ">net6.0</DllTfm>-->
-  <DllTfm>netstandard2.0</DllTfm>
-  <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
-  <!--<DllProd>$(MSBuildThisFileDirectory)../lib/$(DllTfm)/JJ.AutoIncrementVersion.Tasks.dll</DllProd>-->
+  <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
   <DllProd>$(PackDir)JJ.AutoIncrementVersion.Tasks.dll</DllProd>
   <Dll Condition="Exists('$(DllProd)')">$(DllProd)</Dll>
   <Dll Condition="Exists('$(DllDev)')">$(DllDev)</Dll>
@@ -46,12 +34,6 @@
 <Target Name="JJ_AutoInc_LogVars" BeforeTargets="$(Targets)">
   <PropertyGroup>
   <VariablesMessage>$(ToolTitle) VARS
-  ToolTitle = $(ToolTitle)
-  Init = $(Init)
-  Content = $(Content)
-  Load = $(Load)
-  Save = $(Save)
-  Stage = $(Stage)
   ProjDir = $(ProjDir)
   PackDir = $(PackDir)
   XmlName = $(XmlName)
@@ -60,11 +42,6 @@
   Props = $(Props)
   DirProps = $(DirProps)
   Targets = $(Targets)
-  DllTfmOlder = $(DllTfmOlder)
-  DllTfmMono = $(DllTfmMono)
-  DllTfmCore = $(DllTfmCore)
-  DllTfmFull = $(DllTfmFull)
-  DllTfm = $(DllTfm)
   DllDev = $(DllDev)
   DllProd = $(DllProd)
   Dll = $(Dll)
@@ -90,9 +67,7 @@
 
 <!-- RUN BUILD STEPS -->
 
-<Target Condition="'$(ItRanjj)'==''" Name="JJ_AutoInc_BuildSteps" 
-        BeforeTargets="$(Targets)">
-  <PropertyGroup><ItRanjj>True</ItRanjj></PropertyGroup>
+<Target Name="JJ_AutoInc_BuildSteps" BeforeTargets="$(Targets)">
 
   <!-- DIRECTORY.BUILD.PROPS -->
     
