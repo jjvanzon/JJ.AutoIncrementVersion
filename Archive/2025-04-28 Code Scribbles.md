@@ -1,3 +1,5 @@
+From .tagets file:
+
 ```xml
 
 ;DllDevCore
@@ -32,5 +34,24 @@
 Condition="'$(ItRanjj)'==''"
 
   <PropertyGroup><ItRanjj>True</ItRanjj></PropertyGroup>
+
+```
+
+From csproj:
+
+```
+
+    <!--<TargetFrameworks>net8.0</TargetFrameworks>-->
+    <!--<TargetFrameworks>net9.0;net8.0</TargetFrameworks>-->
+    <!--<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net5.0;net461</TargetFrameworks>-->
+
+    <!--<CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>-->
+        
+    <!--
+    <Content Include="build\JJ.AutoIncrementVersion.props">
+      <Pack>False</Pack>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+    -->
 
 ```

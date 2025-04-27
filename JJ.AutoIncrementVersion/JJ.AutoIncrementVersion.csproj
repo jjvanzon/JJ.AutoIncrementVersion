@@ -4,9 +4,6 @@
   
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <!--<TargetFrameworks>net8.0</TargetFrameworks>-->
-    <!--<TargetFrameworks>net9.0;net8.0</TargetFrameworks>-->
-    <!--<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net5.0;net461</TargetFrameworks>-->
     <TargetFrameworks>net9.0;net8.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <Version Condition="'$(BuildNum)'==''">2.2.0</Version>
     <Version Condition="'$(BuildNum)'!=''">2.2.$(BuildNum)</Version>
@@ -26,7 +23,6 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>jj-icon-64x64-margin4.png</PackageIcon>
     <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
-    <!--<CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>-->
     <DevelopmentAssembly>True</DevelopmentAssembly>
   </PropertyGroup>
   
@@ -41,19 +37,12 @@
       <Pack>True</Pack>
       <PackagePath>\build</PackagePath>
     </None>
-    
+
     <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">
       <Pack>True</Pack>
       <PackagePath>\build</PackagePath>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    
-    <!--
-    <Content Include="build\JJ.AutoIncrementVersion.props">
-      <Pack>False</Pack>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-    -->
   </ItemGroup>
 
   <ItemGroup>
@@ -62,9 +51,6 @@
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="$(SolutionDir)\README.md" Visible="False">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
