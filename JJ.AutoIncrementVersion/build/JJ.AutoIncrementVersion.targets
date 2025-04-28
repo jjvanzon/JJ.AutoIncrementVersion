@@ -146,6 +146,8 @@
       </Project>
     </PropsContent>
     
+    <!-- Overwrite with new variant of PropsContent -->
+    <PropsContent>$(DirPropsContent)</PropsContent>
   </PropertyGroup>
 
   <!-- Log buildnum + sources -->

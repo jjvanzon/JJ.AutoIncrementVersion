@@ -1,1 +1,1 @@
-<Project><PropertyGroup Condition="'$(BuildNum)'==''"><BuildNum>2224</BuildNum></PropertyGroup></Project>
+<Project><Import Project="BuildNum.xml" Condition="'$(XmlImportedjj)'=='' And Exists('BuildNum.xml')" /></Project>
