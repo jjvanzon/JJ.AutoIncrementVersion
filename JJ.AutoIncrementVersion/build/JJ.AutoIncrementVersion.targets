@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackageXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
   
 <!-- VARS -->
 
@@ -17,6 +17,7 @@
      <XmlName>BuildNum.xml</XmlName>
    <PropsName>JJ.AutoIncrementVersion.props</PropsName>
          <Xml>$(ProjDir)../$(XmlName)</Xml>
+  <PackageXml>$(PackDir)/$(XmlName)</PackageXml>
        <Props>$(PackDir)$(PropsName)</Props>
     <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
      <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
@@ -166,5 +167,15 @@
   <WriteLinesNoTimestamp 
     Condition="$(DllAvailable)" 
     File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
+
+  <!-- Stage XML too (for future use) -->
+  <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(Xml)&quot;" Importance="High" />
+  <WriteLinesToFile 
+    Condition="!$(DllAvailable)" 
+    File="$(PackageXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+  <WriteLinesNoTimestamp 
+    Condition="$(DllAvailable)" 
+    File="$(PackageXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+
 </Target>
 </Project>
