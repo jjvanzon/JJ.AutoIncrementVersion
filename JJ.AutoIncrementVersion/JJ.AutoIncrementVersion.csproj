@@ -39,8 +39,9 @@
     </Content>
 
     <None Include="JJ.AutoIncrementVersion.props">
-      <Pack>True</Pack>
-      <PackagePath>\build</PackagePath>
+      <!--<Pack>True</Pack>-->
+      <Pack>False</Pack>
+      <!--<PackagePath>\build</PackagePath>-->
     </None>
 
     <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">

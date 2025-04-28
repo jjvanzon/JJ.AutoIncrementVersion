@@ -1,4 +1,4 @@
-From .tagets file:
+.targets file:
 
 ```xml
 
@@ -37,10 +37,9 @@ Condition="'$(ItRanjj)'==''"
 
 ```
 
-From csproj:
+Main csproj:
 
 ```
-
     <!--<TargetFrameworks>net8.0</TargetFrameworks>-->
     <!--<TargetFrameworks>net9.0;net8.0</TargetFrameworks>-->
     <!--<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net5.0;net461</TargetFrameworks>-->
@@ -53,10 +52,9 @@ From csproj:
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     -->
-
 ```
 
-From Tasks csproj:
+Tasks csproj:
 
 ```
     <!--<TargetFrameworks>
@@ -76,5 +74,4 @@ From Tasks csproj:
     <!--<Nullable>enable</Nullable>-->
     <!--<CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>
     <DevelopmentAssembly>True</DevelopmentAssembly>-->
-
 ```
