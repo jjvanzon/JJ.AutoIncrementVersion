@@ -66,7 +66,7 @@
     <DirPropsInnerContent>
       <PropertyGroup>
         <DirProps_Loadedjj>True</DirProps_Loadedjj>
-        <DirProps_LoadTimejj>%24([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.fff"))</DirProps_LoadTimejj>
+        <DirProps_LoadTimejj>%24([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"))</DirProps_LoadTimejj>
         <DirProps_XmlRefjj>$(XmlName)</DirProps_XmlRefjj>
         <DirProps_XmlImportedjj_Pre>%24(XmlImportedjj)</DirProps_XmlImportedjj_Pre>
       </PropertyGroup>
@@ -155,20 +155,20 @@
   BuildNum = $(BuildNum)
   Targets = $(Targets)
 
-  ProjDir = $(ProjDir)
-  PackDir = $(PackDir)
   XmlName = $(XmlName)
   PropsName = $(PropsName)
+  ProjDir = $(ProjDir)
+  PackDir = $(PackDir)
   Xml = $(Xml)
   XmlAlt = $(XmlAlt)
   PackXml = $(PackXml)
   Props = $(Props)
   DirProps = $(DirProps)
   
+  DllAvailable = $(DllAvailable)
+  Dll = $(Dll)
   DllDev = $(DllDev)
   DllProd = $(DllProd)
-  Dll = $(Dll)
-  DllAvailable = $(DllAvailable)
   
   DirProps_Loadedjj = $(DirProps_Loadedjj)
   DirProps_LoadTimejj = $(DirProps_LoadTimejj)

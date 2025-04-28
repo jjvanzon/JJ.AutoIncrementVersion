@@ -1,7 +1,7 @@
 <Project>
   
   <PropertyGroup>
-    <Props_LoadTimejj>$([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.fff"))</Props_LoadTimejj>
+    <Props_LoadTimejj>$([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"))</Props_LoadTimejj>
     <Props_Loadedjj>True</Props_Loadedjj>
     <Props_XmlRefjj>$(MSBuildProjectDirectory)/../BuildNum.xml</Props_XmlRefjj>
     <Props_XmlImportedjj_Pre>$(XmlImportedjj)</Props_XmlImportedjj_Pre>
