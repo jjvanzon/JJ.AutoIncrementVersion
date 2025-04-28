@@ -21,7 +21,7 @@
     <PackXml>$(PackDir)../$(XmlName)</PackXml>
       <Props>$(PackDir)$(PropsName)</Props>
    <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
-    <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
+    <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources;Pack</Targets>
 </PropertyGroup>
   
 <PropertyGroup>
@@ -152,6 +152,7 @@
   
   <PropertyGroup>
   <VariablesMessage>$(ToolTitle) VARS
+  
   BuildNum = $(BuildNum)
   Targets = $(Targets)
 
@@ -181,6 +182,7 @@
   Props_XmlRefjj = $(Props_XmlRefjj)
   Props_XmlImportedjj_Pre = $(Props_XmlImportedjj_Pre)
   Props_XmlImportedjj_Post = $(Props_XmlImportedjj_Post)
+  
   </VariablesMessage>
   </PropertyGroup>
   <Message Text="$(VariablesMessage)" Importance="High" />
