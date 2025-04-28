@@ -38,11 +38,11 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
 
-    <None Include="JJ.AutoIncrementVersion.props">
+    <Content Include="build\JJ.AutoIncrementVersion.props">
       <Pack>True</Pack>
-      <!--<Pack>False</Pack>-->
       <PackagePath>\build</PackagePath>
-    </None>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
 
     <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">
       <Pack>True</Pack>
