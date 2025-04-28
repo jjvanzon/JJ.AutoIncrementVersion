@@ -55,3 +55,26 @@ From csproj:
     -->
 
 ```
+
+From Tasks csproj:
+
+```
+    <!--<TargetFrameworks>
+      net9.0;net8.0;netstandard2.1;netstandard2.0
+    </TargetFrameworks>-->
+    <!--<TargetFrameworks>
+      net9.0;net8.0;net7.0;
+      net481;net48;net472;net471;net47;net462;net461;
+      netstandard2.1;netstandard2.0
+    </TargetFrameworks>-->
+    <!--<TargetFrameworks>
+      net9.0;net8.0;net7.0;
+      net481;net48;net472;net471;net47;net462;
+      netstandard2.1;netstandard2.0
+    </TargetFrameworks>-->
+
+    <!--<Nullable>enable</Nullable>-->
+    <!--<CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>
+    <DevelopmentAssembly>True</DevelopmentAssembly>-->
+
+```

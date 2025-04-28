@@ -25,6 +25,11 @@
     <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
     <DevelopmentAssembly>True</DevelopmentAssembly>
   </PropertyGroup>
+
+  <!-- Establish Determinism (green check in NuGet Package Explorer page) -->
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
   
   <ItemGroup>
     <Content Include="build\JJ.AutoIncrementVersion.targets">
