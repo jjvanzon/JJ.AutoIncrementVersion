@@ -17,7 +17,7 @@
      <XmlName>BuildNum.xml</XmlName>
    <PropsName>JJ.AutoIncrementVersion.props</PropsName>
          <Xml>$(ProjDir)../$(XmlName)</Xml>
-  <PackageXml>$(PackDir)$(XmlName)</PackageXml>
+  <PackageXml>$(PackDir)../$(XmlName)</PackageXml>
        <Props>$(PackDir)$(PropsName)</Props>
     <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
      <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
@@ -147,7 +147,12 @@
     </PropsContent>
     
     <!-- Overwrite with new variant of PropsContent -->
-    <PropsContent>$(DirPropsContent)</PropsContent>
+    <!--<PropsContent>$(DirPropsContent)</PropsContent>-->
+    <PropsContent>
+      <Project>
+        <Import Project="../$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('$(XmlName)')"/>
+      </Project>
+    </PropsContent>
   </PropertyGroup>
 
   <!-- Log buildnum + sources -->
