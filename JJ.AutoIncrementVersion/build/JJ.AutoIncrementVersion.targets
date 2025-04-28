@@ -162,7 +162,8 @@
   
   <!-- STAGE -->
   
-  <!-- To package bound .props location, to import BuildNum early enough for use in csproj. --> 
+  <!-- Stage package bound .props location, to import BuildNum early enough for use in csproj. --> 
+  <!--
   <Message Text="$(Stage) $(BuildNum) => .props &quot;$(Props)&quot;" Importance="High"  />
   <WriteLinesToFile 
     Condition="!$(DllAvailable)" 
@@ -170,8 +171,9 @@
   <WriteLinesNoTimestamp 
     Condition="$(DllAvailable)" 
     File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
-
-  <!-- Stage XML too (for future use) -->
+  -->
+  
+  <!-- Stage XML -->
   <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackageXml)&quot;" Importance="High" />
   <WriteLinesToFile 
     Condition="!$(DllAvailable)" 
