@@ -42,7 +42,9 @@
 
 <!-- IMPORT BUILDNUM XML -->
   
-<Import Project="$(Xml)" Condition="'$(XmlImportedjj)'=='' And Exists('$(Xml)')" />
+<!-- NOTE: Importing here is basically always too late for use in csproj files. 
+     So we outcommented the Import to prevent at least 1 point of confusion about dirtiness. -->
+<!--<Import Project="$(Xml)" Condition="'$(XmlImportedjj)'=='' And Exists('$(Xml)')" />-->
 <PropertyGroup>
   <BuildNum Condition="'$(BuildNum)'==''">0</BuildNum> <!-- Default 0 -->
 </PropertyGroup>

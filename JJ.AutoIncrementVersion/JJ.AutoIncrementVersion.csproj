@@ -38,11 +38,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
 
-    <Content Include="build\JJ.AutoIncrementVersion.props">
+    <!-- NOTE: JJ.AutoIncrementVersion.props with reference to BuildNum.xml that changes at the start of the Build, really seems to confuse the MSBuild/Visual Studio/NuGet about the dirty state of our projects and tends to send our tooling into some sort of "probably updated nugets" loop for 5 minutes. -->
+    <!--<Content Include="build\JJ.AutoIncrementVersion.props">
       <Pack>True</Pack>
       <PackagePath>\build</PackagePath>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
+    </Content>-->
 
     <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">
       <Pack>True</Pack>
