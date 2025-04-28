@@ -75,3 +75,36 @@ Tasks csproj:
     <!--<CopyLocalLockFileAssemblies>True</CopyLocalLockFileAssemblies>
     <DevelopmentAssembly>True</DevelopmentAssembly>-->
 ```
+
+Removing redundant .props logic:
+
+```
+  
+    ;PropsContent
+    
+    <PropsContent>
+      <Project>
+        <PropertyGroup Condition="'%24(BuildNum)'==''"><BuildNum>$(BuildNum)</BuildNum></PropertyGroup>
+      </Project>
+    </PropsContent>
+    
+    <!-- Overwrite with new variant of PropsContent -->
+    <!--<PropsContent>$(DirPropsContent)</PropsContent>-->
+    <PropsContent>
+      <Project>
+        <Import Project="../$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('../$(XmlName)')"/>
+      </Project>
+    </PropsContent>
+  
+  <!-- Stage package bound .props location, to import BuildNum early enough for use in csproj. --> 
+  <!--
+  <Message Text="$(Stage) $(BuildNum) => .props &quot;$(Props)&quot;" Importance="High"  />
+  <WriteLinesToFile 
+    Condition="!$(DllAvailable)" 
+    File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+  <WriteLinesNoTimestamp 
+    Condition="$(DllAvailable)" 
+    File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
+  -->
+
+```

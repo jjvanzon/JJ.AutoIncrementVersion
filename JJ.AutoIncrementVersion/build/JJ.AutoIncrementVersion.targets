@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackageXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent;PropsContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackageXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent">
   
 <!-- VARS -->
 
@@ -139,20 +139,6 @@
         </PropertyGroup>
       </Project>
     </XmlContent>
-    
-    <PropsContent>
-      <Project>
-        <PropertyGroup Condition="'%24(BuildNum)'==''"><BuildNum>$(BuildNum)</BuildNum></PropertyGroup>
-      </Project>
-    </PropsContent>
-    
-    <!-- Overwrite with new variant of PropsContent -->
-    <!--<PropsContent>$(DirPropsContent)</PropsContent>-->
-    <PropsContent>
-      <Project>
-        <Import Project="../$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('../$(XmlName)')"/>
-      </Project>
-    </PropsContent>
   </PropertyGroup>
 
   <!-- Log buildnum + sources -->
@@ -167,18 +153,7 @@
   
   <!-- STAGE -->
   
-  <!-- Stage package bound .props location, to import BuildNum early enough for use in csproj. --> 
-  <!--
-  <Message Text="$(Stage) $(BuildNum) => .props &quot;$(Props)&quot;" Importance="High"  />
-  <WriteLinesToFile 
-    Condition="!$(DllAvailable)" 
-    File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
-  <WriteLinesNoTimestamp 
-    Condition="$(DllAvailable)" 
-    File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
-  -->
-  
-  <!-- Stage XML -->
+  <!-- Stage XML to package folder, where it's referenced by the .props file for early availability in a csproj. -->
   <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackageXml)&quot;" Importance="High" />
   <WriteLinesToFile 
     Condition="!$(DllAvailable)" 
