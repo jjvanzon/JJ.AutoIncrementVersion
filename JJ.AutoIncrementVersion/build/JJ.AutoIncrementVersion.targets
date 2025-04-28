@@ -68,9 +68,12 @@
         <DirProps_Loadedjj>True</DirProps_Loadedjj>
         <DirProps_LoadTimejj>%24([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.fff"))</DirProps_LoadTimejj>
         <DirProps_XmlRefjj>$(XmlName)</DirProps_XmlRefjj>
-        <DirProps_XmlImportedAlreadyjj>%24(XmlImportedjj)</DirProps_XmlImportedAlreadyjj>
+        <DirProps_XmlImportedjj_Pre>%24(XmlImportedjj)</DirProps_XmlImportedjj_Pre>
       </PropertyGroup>
       <Import Project="$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('$(XmlName)')"/>
+      <PropertyGroup>
+        <DirProps_XmlImportedjj_Post>%24(XmlImportedjj)</DirProps_XmlImportedjj_Post>
+      </PropertyGroup>
     </DirPropsInnerContent>
     <DirPropsContent>
       <Project>$(DirPropsInnerContent)</Project>
@@ -149,6 +152,9 @@
   
   <PropertyGroup>
   <VariablesMessage>$(ToolTitle) VARS
+  BuildNum = $(BuildNum)
+  Targets = $(Targets)
+
   ProjDir = $(ProjDir)
   PackDir = $(PackDir)
   XmlName = $(XmlName)
@@ -158,20 +164,23 @@
   PackXml = $(PackXml)
   Props = $(Props)
   DirProps = $(DirProps)
-  Targets = $(Targets)
+  
   DllDev = $(DllDev)
   DllProd = $(DllProd)
   Dll = $(Dll)
   DllAvailable = $(DllAvailable)
-  Props_Loadedjj = $(Props_Loadedjj)
-  Props_LoadTimejj = $(Props_LoadTimejj)
-  Props_XmlRefjj = $(Props_XmlRefjj)
-  Props_XmlImportedAlreadyjj = $(Props_XmlImportedAlreadyjj)
+  
   DirProps_Loadedjj = $(DirProps_Loadedjj)
   DirProps_LoadTimejj = $(DirProps_LoadTimejj)
   DirProps_XmlRefjj = $(DirProps_XmlRefjj)
-  DirProps_XmlImportedAlreadyjj = $(DirProps_XmlImportedAlreadyjj)
-  BuildNum = $(BuildNum)
+  DirProps_XmlImportedjj_Pre = $(DirProps_XmlImportedjj_Pre)
+  DirProps_XmlImportedjj_Post = $(DirProps_XmlImportedjj_Post)
+
+  Props_Loadedjj = $(Props_Loadedjj)
+  Props_LoadTimejj = $(Props_LoadTimejj)
+  Props_XmlRefjj = $(Props_XmlRefjj)
+  Props_XmlImportedjj_Pre = $(Props_XmlImportedjj_Pre)
+  Props_XmlImportedjj_Post = $(Props_XmlImportedjj_Post)
   </VariablesMessage>
   </PropertyGroup>
   <Message Text="$(VariablesMessage)" Importance="High" />
