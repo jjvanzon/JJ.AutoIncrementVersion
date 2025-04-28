@@ -1,1 +1,4 @@
-<Project><Import Project="../BuildNum.xml" Condition="'$(XmlImportedjj)'=='' And Exists('../BuildNum.xml')" /></Project>
+<Project>
+  <PropertyGroup><Props_Loadedjj>True</Props_Loadedjj></PropertyGroup>
+  <Import Project="../BuildNum.xml" Condition="'$(XmlImportedjj)'=='' And Exists('../BuildNum.xml')" />
+</Project>

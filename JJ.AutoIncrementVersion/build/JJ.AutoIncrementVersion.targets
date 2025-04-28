@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsError;XmlReadOut;PropsReadOut;XmlContent">
   
 <!-- VARS -->
 
@@ -32,27 +32,6 @@
   <DllAvailable Condition="Exists('$(Dll)')">True</DllAvailable>
 </PropertyGroup>
 
-<Target Name="JJ_AutoInc_LogVars" BeforeTargets="$(Targets)">
-  <PropertyGroup>
-  <VariablesMessage>$(ToolTitle) VARS
-  ProjDir = $(ProjDir)
-  PackDir = $(PackDir)
-  XmlName = $(XmlName)
-  PropsName = $(PropsName)
-  Xml = $(Xml)
-  PackXml = $(PackXml)
-  Props = $(Props)
-  DirProps = $(DirProps)
-  Targets = $(Targets)
-  DllDev = $(DllDev)
-  DllProd = $(DllProd)
-  Dll = $(Dll)
-  DllAvailable = $(DllAvailable)
-  </VariablesMessage>
-  </PropertyGroup>
-  <Message Text="$(VariablesMessage)" Importance="High" />
-</Target>
-
 <!-- IMPORT DLL -->
 
 <Target Condition="!$(DllAvailable)" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(Targets)">
@@ -84,6 +63,7 @@
   <!-- Build content -->
   <PropertyGroup>
     <DirPropsInnerContent>
+      <PropertyGroup><DirProps_Loadedjj>True</DirProps_Loadedjj></PropertyGroup>
       <Import Project="$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('$(XmlName)')"/>
     </DirPropsInnerContent>
     <DirPropsContent>
@@ -93,13 +73,10 @@
 
   <!-- Warn missing content -->
   <PropertyGroup>
-    <DirPropsWarning>$(ToolTitle) ⚠️ WARNING ⚠️ 
-     DIRECTORY.BUILD.PROPS OUT OF DATE!
-     FILE: $(DirProps)
-     ADD: $(DirPropsInnerContent)
-     OR: $(DirPropsContent)</DirPropsWarning>
+  <DirPropsError>Project tag should contain: $(DirPropsInnerContent)</DirPropsError>
   </PropertyGroup>
-  <Warning Text="$(DirPropsWarning)" Condition="Exists('$(DirProps)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
+  <Error Text="$(DirPropsError)" File="$(DirProps)" Code="$(ToolTitle)"
+         Condition="Exists('$(DirProps)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
 
   <!-- Create directory.build.props -->
            <Message Condition="!Exists('$(DirProps)')" Text="$(Init) => &quot;$(DirProps)&quot;" Importance="High" />
@@ -161,6 +138,27 @@
   <WriteLinesNoTimestamp 
     Condition="$(DllAvailable)" 
     File="$(PackXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+
+  <PropertyGroup>
+  <VariablesMessage>$(ToolTitle) VARS
+  ProjDir = $(ProjDir)
+  PackDir = $(PackDir)
+  XmlName = $(XmlName)
+  PropsName = $(PropsName)
+  Xml = $(Xml)
+  PackXml = $(PackXml)
+  Props = $(Props)
+  DirProps = $(DirProps)
+  Targets = $(Targets)
+  DllDev = $(DllDev)
+  DllProd = $(DllProd)
+  Dll = $(Dll)
+  DllAvailable = $(DllAvailable)
+  Props_Loadedjj = $(Props_Loadedjj)
+  DirProps_Loadedjj = $(DirProps_Loadedjj)
+  </VariablesMessage>
+  </PropertyGroup>
+  <Message Text="$(VariablesMessage)" Importance="High" />
 
 </Target>
 </Project>

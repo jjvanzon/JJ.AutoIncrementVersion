@@ -81,7 +81,7 @@ Removing redundant .props logic:
 ```
   
     ;PropsContent
-    
+
     <PropsContent>
       <Project>
         <PropertyGroup Condition="'%24(BuildNum)'==''"><BuildNum>$(BuildNum)</BuildNum></PropertyGroup>
@@ -106,5 +106,30 @@ Removing redundant .props logic:
     Condition="$(DllAvailable)" 
     File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
   -->
+```
+
+Trying to display a message from a .props file (didn't work):
+
+```
+  <Target Name="JJ_Auto_Inc_Props" BeforeTargets="BeforeBuild;JJ_AutoInc_BuildSteps">
+    <Message Text="JJ-AUTO-INC RUN JJ.AutoIncrementVersion.props" Importance="High" />
+    <Message Text="JJ-AUTO-INC IMPORT BuildNum.xml ?" Importance="High" />
+    <Message Text="JJ-AUTO-INC IMPORT XmlImportedjj = $(XmlImportedjj)" Importance="High" />
+    <Message Text="JJ-AUTO-INC IMPORT Exists('../BuildNum.xml') = $(Exists('../BuildNum.xml'))" Importance="High" />
+  </Target>
+```
+
+Sticking to single variable Props_Loadedjj for now:
+
+```
+    <!--<Props_Condition_Expressionjj>'%24(XmlImportedjj)'=='' And Exists('../BuildNum.xml')</Props_Condition_Expressionjj>
+    <Props_Condition_Valuejj>'$(XmlImportedjj)'=='' And Exists('../BuildNum.xml')</Props_Condition_Valuejj>
+    <Props_XmlImportedjj>$(XmlImportedjj)</Props_XmlImportedjj>
+    <Props_BuildNum_Xml_Existsjj>$(Exists('../BuildNum.xml')</Props_BuildNum_Xml_Existsjj>-->
+
+  Props_Condition_Expressionjj = $(Props_Condition_Expressionjj)
+  Props_Condition_Valuejj = $(Props_Condition_Valuejj)
+  Props_XmlImportedjj = $(Props_XmlImportedjj)
+  Props_BuildNum_Xml_Existsjj = $(Props_BuildNum_Xml_Existsjj)
 
 ```
