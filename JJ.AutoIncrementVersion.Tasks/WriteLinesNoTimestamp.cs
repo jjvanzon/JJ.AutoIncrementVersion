@@ -36,10 +36,10 @@ public class WriteLinesNoTimestamp : Task
             if (Exists(path))
             {
                 timeStamp = GetLastWriteTimeUtc(path);
-                Log.LogMessage(High, $"{ToolTitle} TIMESTAMP GET {timeStamp} <= {path}");
+                Log.LogMessage(High, $"{ToolTitle}{Indent} TIMESTAMP GET {timeStamp} <= {path}");
             }
 
-            Log.LogMessage(High, $"{ToolTitle} WRITE FILE => {path}");
+            Log.LogMessage(High, $"{ToolTitle}{Indent} WRITE FILE => {path}");
 
             var innerTask = new WriteLinesToFile
             {
@@ -59,7 +59,7 @@ public class WriteLinesNoTimestamp : Task
             if (timeStamp != default)
             {
                 SetLastWriteTimeUtc(path, timeStamp);
-                Log.LogMessage(High, $"{ToolTitle} TIMESTAMP SET {timeStamp} => {path}");
+                Log.LogMessage(High, $"{ToolTitle}{Indent} TIMESTAMP SET {timeStamp} => {path}");
             }
 
             return true;

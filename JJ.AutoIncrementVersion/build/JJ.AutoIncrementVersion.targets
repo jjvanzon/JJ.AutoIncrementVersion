@@ -17,7 +17,7 @@
      <XmlName>BuildNum.xml</XmlName>
    <PropsName>JJ.AutoIncrementVersion.props</PropsName>
          <Xml>$(ProjDir)../$(XmlName)</Xml>
-  <PackageXml>$(PackDir)/$(XmlName)</PackageXml>
+  <PackageXml>$(PackDir)$(XmlName)</PackageXml>
        <Props>$(PackDir)$(PropsName)</Props>
     <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
      <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
@@ -40,6 +40,7 @@
   XmlName = $(XmlName)
   PropsName = $(PropsName)
   Xml = $(Xml)
+  PackageXml = $(PackageXml)
   Props = $(Props)
   DirProps = $(DirProps)
   Targets = $(Targets)
@@ -169,7 +170,7 @@
     File="$(Props)" Lines="$(PropsContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True"/>
 
   <!-- Stage XML too (for future use) -->
-  <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(Xml)&quot;" Importance="High" />
+  <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackageXml)&quot;" Importance="High" />
   <WriteLinesToFile 
     Condition="!$(DllAvailable)" 
     File="$(PackageXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
