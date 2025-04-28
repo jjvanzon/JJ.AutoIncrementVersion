@@ -1,5 +1,4 @@
 <Project>
-  
   <PropertyGroup>
     <Props_LoadTimejj>$([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"))</Props_LoadTimejj>
     <Props_Loadedjj>True</Props_Loadedjj>
@@ -12,5 +11,4 @@
   <PropertyGroup>
     <Props_XmlImportedjj_Post>$(XmlImportedjj)</Props_XmlImportedjj_Post>
   </PropertyGroup>
-  
 </Project>
