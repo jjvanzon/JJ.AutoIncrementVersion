@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackageXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsWarning;XmlReadOut;PropsReadOut;XmlContent">
   
 <!-- VARS -->
 
@@ -12,15 +12,15 @@
 </PropertyGroup>
 
 <PropertyGroup>
-     <ProjDir>$(MSBuildProjectDirectory)/</ProjDir>
-     <PackDir>$(MSBuildThisFileDirectory)</PackDir>
-     <XmlName>BuildNum.xml</XmlName>
-   <PropsName>JJ.AutoIncrementVersion.props</PropsName>
-         <Xml>$(ProjDir)../$(XmlName)</Xml>
-  <PackageXml>$(PackDir)../$(XmlName)</PackageXml>
-       <Props>$(PackDir)$(PropsName)</Props>
-    <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
-     <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
+    <ProjDir>$(MSBuildProjectDirectory)/</ProjDir>
+    <PackDir>$(MSBuildThisFileDirectory)</PackDir>
+    <XmlName>BuildNum.xml</XmlName>
+  <PropsName>JJ.AutoIncrementVersion.props</PropsName>
+        <Xml>$(ProjDir)../$(XmlName)</Xml>
+    <PackXml>$(PackDir)../$(XmlName)</PackXml>
+      <Props>$(PackDir)$(PropsName)</Props>
+   <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
+    <Targets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources</Targets>
 </PropertyGroup>
   
 <PropertyGroup>
@@ -40,7 +40,7 @@
   XmlName = $(XmlName)
   PropsName = $(PropsName)
   Xml = $(Xml)
-  PackageXml = $(PackageXml)
+  PackXml = $(PackXml)
   Props = $(Props)
   DirProps = $(DirProps)
   Targets = $(Targets)
@@ -154,13 +154,13 @@
   <!-- STAGE -->
   
   <!-- Stage XML to package folder, where it's referenced by the .props file for early availability in a csproj. -->
-  <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackageXml)&quot;" Importance="High" />
+  <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackXml)&quot;" Importance="High" />
   <WriteLinesToFile 
     Condition="!$(DllAvailable)" 
-    File="$(PackageXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+    File="$(PackXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
   <WriteLinesNoTimestamp 
     Condition="$(DllAvailable)" 
-    File="$(PackageXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+    File="$(PackXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
 
 </Target>
 </Project>
