@@ -1,4 +1,4 @@
-<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;PackXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsError;XmlReadOut;PropsReadOut;XmlContent">
+<Project TreatAsLocalProperty="ToolTitle;Init;Content;Load;Save;Stage;ProjDir;PackDir;XmlName;PropsName;Xml;XmlAlt;PackXml;Props;DirProps;Targets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsError;XmlReadOut;PropsReadOut;XmlContent">
   
 <!-- VARS -->
 
@@ -17,6 +17,7 @@
     <XmlName>BuildNum.xml</XmlName>
   <PropsName>JJ.AutoIncrementVersion.props</PropsName>
         <Xml>$(ProjDir)../$(XmlName)</Xml>
+     <XmlAlt>$(MSBuildProjectDirectory)/../$(XmlName)</XmlAlt>
     <PackXml>$(PackDir)../$(XmlName)</PackXml>
       <Props>$(PackDir)$(PropsName)</Props>
    <DirProps>$(ProjDir)../Directory.Build.props</DirProps>
@@ -60,10 +61,15 @@
     <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
   </ReadLinesFromFile>
 
-  <!-- Build content -->
+  <!-- Build DirProps content -->
   <PropertyGroup>
     <DirPropsInnerContent>
-      <PropertyGroup><DirProps_Loadedjj>True</DirProps_Loadedjj></PropertyGroup>
+      <PropertyGroup>
+        <DirProps_Loadedjj>True</DirProps_Loadedjj>
+        <DirProps_LoadTimejj>%24([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.fff"))</DirProps_LoadTimejj>
+        <DirProps_XmlRefjj>$(XmlName)</DirProps_XmlRefjj>
+        <DirProps_XmlImportedAlreadyjj>%24(XmlImportedjj)</DirProps_XmlImportedAlreadyjj>
+      </PropertyGroup>
       <Import Project="$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('$(XmlName)')"/>
     </DirPropsInnerContent>
     <DirPropsContent>
@@ -131,6 +137,7 @@
   <!-- STAGE -->
   
   <!-- Stage XML to package folder, where it's referenced by the .props file for early availability in a csproj. -->
+  <!--
   <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackXml)&quot;" Importance="High" />
   <WriteLinesToFile 
     Condition="!$(DllAvailable)" 
@@ -138,7 +145,8 @@
   <WriteLinesNoTimestamp 
     Condition="$(DllAvailable)" 
     File="$(PackXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
-
+  -->
+  
   <PropertyGroup>
   <VariablesMessage>$(ToolTitle) VARS
   ProjDir = $(ProjDir)
@@ -146,6 +154,7 @@
   XmlName = $(XmlName)
   PropsName = $(PropsName)
   Xml = $(Xml)
+  XmlAlt = $(XmlAlt)
   PackXml = $(PackXml)
   Props = $(Props)
   DirProps = $(DirProps)
@@ -155,7 +164,14 @@
   Dll = $(Dll)
   DllAvailable = $(DllAvailable)
   Props_Loadedjj = $(Props_Loadedjj)
+  Props_LoadTimejj = $(Props_LoadTimejj)
+  Props_XmlRefjj = $(Props_XmlRefjj)
+  Props_XmlImportedAlreadyjj = $(Props_XmlImportedAlreadyjj)
   DirProps_Loadedjj = $(DirProps_Loadedjj)
+  DirProps_LoadTimejj = $(DirProps_LoadTimejj)
+  DirProps_XmlRefjj = $(DirProps_XmlRefjj)
+  DirProps_XmlImportedAlreadyjj = $(DirProps_XmlImportedAlreadyjj)
+  BuildNum = $(BuildNum)
   </VariablesMessage>
   </PropertyGroup>
   <Message Text="$(VariablesMessage)" Importance="High" />
