@@ -150,7 +150,7 @@
     <!--<PropsContent>$(DirPropsContent)</PropsContent>-->
     <PropsContent>
       <Project>
-        <Import Project="../$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('$(XmlName)')"/>
+        <Import Project="../$(XmlName)" Condition="'%24(XmlImportedjj)'=='' And Exists('../$(XmlName)')"/>
       </Project>
     </PropsContent>
   </PropertyGroup>
