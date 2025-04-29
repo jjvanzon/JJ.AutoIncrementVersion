@@ -1,4 +1,8 @@
-<Project TreatAsLocalProperty="ProjDir;PackDir;XmlPath;DirPropsPath;BeforeTargets;DllDev;DllProd;Dll;DllAvailable;VariablesMessage;DirPropsInnerContent;DirPropsContent;DirPropsReadOut;DirPropsError;XmlReadOut;XmlContent">
+<Project TreatAsLocalProperty="
+         ProjDir;PackDir;XmlPath;DirPropsPath;BeforeTargets;
+         DllProd;DllDev;Dll;
+         DirPropsInnerContent;DirPropsContent;DirPropsReadOut;
+         XmlReadOut;VariablesMessage;XmlContent">
     
   <!-- VARS -->
 
@@ -13,8 +17,8 @@
   <!-- DLL -->
   
   <PropertyGroup>
-    <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
     <DllProd>$(PackDir)JJ.AutoIncrementVersion.Tasks.dll</DllProd>
+    <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
     <Dll Condition="Exists('$(DllProd)')">$(DllProd)</Dll>
     <Dll Condition="Exists('$(DllDev)')">$(DllDev)</Dll>
   </PropertyGroup>
@@ -51,7 +55,7 @@
   
   <!-- LOG -->
   
-  <Target Name="JJ_AutoInc_Log" AfterTargets="JJ_AutoInc_Init">
+  <Target Name="JJ_AutoInc_Log" AfterTargets="$(BeforeTargets)">
     
     <!-- Content -->
     
@@ -72,8 +76,8 @@
  DirPropsPath = $(DirPropsPath)
  DirPropsReadOut = $(DirPropsReadOut)
  Dll = $(Dll)
- DllDev = $(DllDev)
  DllProd = $(DllProd)
+ DllDev = $(DllDev)
     </VariablesMessage>
     </PropertyGroup>
     <Message Text="$(VariablesMessage)" Importance="High" />
