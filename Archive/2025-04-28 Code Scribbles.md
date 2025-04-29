@@ -133,3 +133,48 @@ Sticking to single variable Props_Loadedjj for now:
   Props_BuildNum_Xml_Existsjj = $(Props_BuildNum_Xml_Existsjj)
 
 ```
+
+Old writing to package folder:
+
+```
+  <!-- STAGE -->
+  
+  <!-- Stage XML to package folder, where it's referenced by the .props file for early availability in a csproj. -->
+  <!--
+  <Message Text="$(Stage) $(BuildNum) => .xml &quot;$(PackXml)&quot;" Importance="High" />
+  <WriteLinesToFile 
+    Condition="!$(DllAvailable)" 
+    File="$(PackXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+  <WriteLinesNoTimestamp 
+    Condition="$(DllAvailable)" 
+    File="$(PackXml)" Lines="$(XmlContent)" Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
+  -->
+```
+
+Extended dir props content:
+
+```xml
+        <PropertyGroup>
+          <DirProps_Loadedjj>True</DirProps_Loadedjj>
+          <DirProps_LoadTimejj>%24([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"))</DirProps_LoadTimejj>
+          <DirProps_XmlRefjj>$(XmlName)</DirProps_XmlRefjj>
+          <DirProps_XmlImportedjj_Pre>%24(XmlImportedjj)</DirProps_XmlImportedjj_Pre>
+        </PropertyGroup>
+        ...
+        <PropertyGroup>
+          <DirProps_XmlImportedjj_Post>%24(XmlImportedjj)</DirProps_XmlImportedjj_Post>
+        </PropertyGroup>
+
+    DirProps_Loadedjj = $(DirProps_Loadedjj)
+    DirProps_LoadTimejj = $(DirProps_LoadTimejj)
+    DirProps_XmlRefjj = $(DirProps_XmlRefjj)
+    DirProps_XmlImportedjj_Pre = $(DirProps_XmlImportedjj_Pre)
+    DirProps_XmlImportedjj_Post = $(DirProps_XmlImportedjj_Post)
+
+```
+
+```xml
+  <Target Condition="'$(Dll)'==''" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(BeforeTargets)">
+    <Message Text="JJ-AUTO-INC ⚠️ WARNING ⚠️ DLL not found." Importance="High" />
+  </Target>
+```
