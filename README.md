@@ -52,13 +52,13 @@ Just:
 Release Notes
 =============
 
-`1.8` Initial release.  
-`1.9` Fix file in use error.  
-`2.0` Prevent IntelliSense rescan.  
-`2.1` Housekeeping.  
-`2.2` Reduce memory leak in "probably updated nugets" process.  
-`2.3` Total restructure. Zero effect.
-
+`1.8` Initial release  
+`1.9` Fix file in use error  
+`2.0` Prevent IntelliSense rescan  
+`2.1` Housekeeping  
+`2.2` Reduce memory leak in "probably updated nugets" process  
+`2.3` Total restructure, zero effect  
+`2.4` BuildNum exists => Directory.Build.props optional  
 
 💬 Feedback 
 ============
