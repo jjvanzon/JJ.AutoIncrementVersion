@@ -151,7 +151,7 @@ Old writing to package folder:
   -->
 ```
 
-Extended dir props content:
+Extended props content:
 
 ```xml
         <PropertyGroup>
@@ -177,4 +177,16 @@ Extended dir props content:
   <Target Condition="'$(Dll)'==''" Name="JJ_AutoInc_DllMissing" BeforeTargets="$(BeforeTargets)">
     <Message Text="JJ-AUTO-INC ⚠️ WARNING ⚠️ DLL not found." Importance="High" />
   </Target>
+```
+
+
+From csproj:
+
+```
+    <!-- NOTE: JJ.AutoIncrementVersion.props with reference to BuildNum.xml that changes at the start of the Build, really seems to confuse the MSBuild/Visual Studio/NuGet about the dirty state of our projects and tends to send our tooling into some sort of "probably updated nugets" loop for 5 minutes. -->
+    <!--<Content Include="build\JJ.AutoIncrementVersion.props">
+      <Pack>True</Pack>
+      <PackagePath>\build</PackagePath>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>-->
 ```
