@@ -62,37 +62,38 @@
     <ReadLinesFromFile File="$(DirPropsPath)" Condition="Exists('$(DirPropsPath)')" ContinueOnError="True" >
       <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
     </ReadLinesFromFile>
-    <Message Text="JJ-AUTO-INC CONTENT dir .props: '$(DirPropsReadOut)' &lt;= '$(DirPropsPath)'" Importance="High" />
+    <!--<Message Text="JJ-AUTO-INC CONTENT dir .props: '$(DirPropsReadOut)' &lt;= '$(DirPropsPath)'" Importance="High" />-->
     
     <ReadLinesFromFile File="$(XmlPath)" Condition="Exists('$(XmlPath)')" ContinueOnError="True">
       <Output TaskParameter="Lines" PropertyName="XmlReadOut" />
     </ReadLinesFromFile>
-    <Message Text="JJ-AUTO-INC CONTENT .xml: '$(XmlReadOut)' &lt;= '$(XmlPath)'" Importance="High" />
+    <!--<Message Text="JJ-AUTO-INC CONTENT .xml: '$(XmlReadOut)' &lt;= '$(XmlPath)'" Importance="High" />-->
     
     <!-- Variables -->
     
     <PropertyGroup>
     <VariablesMessage>JJ-AUTO-INC VARS
-    BuildNum = $(BuildNum)
-    BeforeTargets = $(BeforeTargets)
-    ProjDir = $(ProjDir)
-    PackDir = $(PackDir)
-    XmlPath = $(XmlPath)
-    DirPropsPath = $(DirPropsPath)
-    Dll = $(Dll)
-    DllDev = $(DllDev)
-    DllProd = $(DllProd)
+  BuildNum = $(BuildNum)
+  BeforeTargets = $(BeforeTargets)
+  ProjDir = $(ProjDir)
+  PackDir = $(PackDir)
+  XmlPath = $(XmlPath)
+  DirPropsPath = $(DirPropsPath)
+  XmlReadOut = $(XmlReadOut)
+  DirPropsReadOut = $(DirPropsReadOut)
     </VariablesMessage>
     </PropertyGroup>
     <Message Text="$(VariablesMessage)" Importance="High" />
-
+    <!--
+    Dll = $(Dll)
+    DllDev = $(DllDev)
+    DllProd = $(DllProd)
+    -->
   </Target>
 
   <!-- SAVE -->
     
   <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent">
-
-    <Message Text="JJ-AUTO-INC SAVE $(BuildNum) => .xml '$(XmlPath)'" Importance="High" />
 
     <PropertyGroup>
       <!-- Default 0 -->
@@ -112,6 +113,8 @@
       </XmlContent>
     </PropertyGroup>
     
+    <Message Text="JJ-AUTO-INC SAVE $(BuildNum) => .xml '$(XmlPath)'" Importance="High" />
+
     <!-- Save updated xml -->
     <WriteLinesToFile 
       Condition="'$(Dll)'==''" File="$(XmlPath)" Lines="$(XmlContent)"
