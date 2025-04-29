@@ -190,3 +190,14 @@ From csproj:
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>-->
 ```
+
+```
+    
+    <ReadLinesFromFile File="$(DirPropsPath)" Condition="Exists('$(DirPropsPath)')" ContinueOnError="True" >
+      <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
+    </ReadLinesFromFile>
+
+    <!--<Message Text="JJ-AUTO-INC CONTENT dir .props: '$(DirPropsReadOut)' &lt;= '$(DirPropsPath)'" Importance="High" />-->
+    <!--<Message Text="JJ-AUTO-INC CONTENT .xml: '$(XmlReadOut)' &lt;= '$(XmlPath)'" Importance="High" />-->
+```
+

@@ -3,5 +3,6 @@
 internal static class Constants
 {
     public const string ToolTitle = "JJ-AUTO-INC";
-    public const string Indent = "  ";
+    //public const string Indent = "  ";
+    public const string Indent = "";
 }

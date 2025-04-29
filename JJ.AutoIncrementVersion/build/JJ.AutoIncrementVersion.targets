@@ -41,10 +41,7 @@
     </ReadLinesFromFile>
 
     <!-- Report missing content -->
-    <PropertyGroup>
-      <DirPropsError>Project tag should contain: $(DirPropsInnerContent)</DirPropsError>
-    </PropertyGroup>
-    <Error Text="$(DirPropsError)" File="$(DirPropsPath)" Code="JJ-AUTO-INC"
+    <Error Text="Project tag should contain: $(DirPropsInnerContent)" File="$(DirPropsPath)" Code="JJ-AUTO-INC"
            Condition="Exists('$(DirPropsPath)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
 
     <!-- Auto-create -->
@@ -54,40 +51,32 @@
   
   <!-- LOG -->
   
-  <Target Name="JJ_AutoInc_Log" BeforeTargets="JJ_AutoInc_Init">
+  <Target Name="JJ_AutoInc_Log" AfterTargets="JJ_AutoInc_Init">
     
     <!-- Content -->
-    
-    <ReadLinesFromFile File="$(DirPropsPath)" Condition="Exists('$(DirPropsPath)')" ContinueOnError="True" >
-      <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
-    </ReadLinesFromFile>
-    <!--<Message Text="JJ-AUTO-INC CONTENT dir .props: '$(DirPropsReadOut)' &lt;= '$(DirPropsPath)'" Importance="High" />-->
     
     <ReadLinesFromFile File="$(XmlPath)" Condition="Exists('$(XmlPath)')" ContinueOnError="True">
       <Output TaskParameter="Lines" PropertyName="XmlReadOut" />
     </ReadLinesFromFile>
-    <!--<Message Text="JJ-AUTO-INC CONTENT .xml: '$(XmlReadOut)' &lt;= '$(XmlPath)'" Importance="High" />-->
     
     <!-- Variables -->
     
     <PropertyGroup>
     <VariablesMessage>JJ-AUTO-INC VARS
-  BuildNum = $(BuildNum)
-  BeforeTargets = $(BeforeTargets)
-  ProjDir = $(ProjDir)
-  PackDir = $(PackDir)
-  XmlPath = $(XmlPath)
-  DirPropsPath = $(DirPropsPath)
-  XmlReadOut = $(XmlReadOut)
-  DirPropsReadOut = $(DirPropsReadOut)
+ BuildNum = $(BuildNum)
+ BeforeTargets = $(BeforeTargets)
+ ProjDir = $(ProjDir)
+ PackDir = $(PackDir)
+ XmlPath = $(XmlPath)
+ XmlReadOut = $(XmlReadOut)
+ DirPropsPath = $(DirPropsPath)
+ DirPropsReadOut = $(DirPropsReadOut)
+ Dll = $(Dll)
+ DllDev = $(DllDev)
+ DllProd = $(DllProd)
     </VariablesMessage>
     </PropertyGroup>
     <Message Text="$(VariablesMessage)" Importance="High" />
-    <!--
-    Dll = $(Dll)
-    DllDev = $(DllDev)
-    DllProd = $(DllProd)
-    -->
   </Target>
 
   <!-- SAVE -->
