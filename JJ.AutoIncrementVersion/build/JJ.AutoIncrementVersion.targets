@@ -12,7 +12,6 @@
 
   <!-- DLL -->
   
-  <!--
   <PropertyGroup>
     <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
     <DllProd>$(PackDir)JJ.AutoIncrementVersion.Tasks.dll</DllProd>
@@ -20,7 +19,6 @@
     <Dll Condition="Exists('$(DllDev)')">$(DllDev)</Dll>
   </PropertyGroup>
   <UsingTask TaskName="JJ.AutoIncrementVersion.Tasks.WriteLinesNoTimestamp" AssemblyFile="$(Dll)" Condition="'$(Dll)'!=''" />
-  -->
   
   <!-- DIR PROPS -->
 
@@ -29,6 +27,7 @@
     <!-- Build DirProps content -->
     <PropertyGroup>
       <DirPropsInnerContent>
+        <PropertyGroup><BuildNum>0</BuildNum></PropertyGroup>
         <Import Project="BuildNum.xml" Condition="Exists('BuildNum.xml')"/>
       </DirPropsInnerContent>
       <DirPropsContent>
@@ -120,10 +119,8 @@
       Condition="'$(Dll)'==''" File="$(XmlPath)" Lines="$(XmlContent)"
       Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
     
-    <!--
     <WriteLinesNoTimestamp 
       Condition="'$(Dll)'!=''" File="$(XmlPath)" Lines="$(XmlContent)"
       Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
-    -->
   </Target>
 </Project>

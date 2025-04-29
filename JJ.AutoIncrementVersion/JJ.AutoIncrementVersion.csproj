@@ -38,13 +38,11 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
 
-    <!--
     <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">
       <Pack>True</Pack>
       <PackagePath>\build</PackagePath>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
-    -->
   </ItemGroup>
 
   <ItemGroup>
@@ -60,11 +58,9 @@
     </Content>
   </ItemGroup>
 
-  <!--
   <ItemGroup>
     <ProjectReference 
       Include="..\JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj"
       PrivateAssets="all" />
   </ItemGroup>
-  -->
 </Project>
