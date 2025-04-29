@@ -112,7 +112,9 @@
       Condition="'$(Dll)'==''" File="$(XmlPath)" Lines="$(XmlContent)"
       Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
     
-    <WriteLinesNoTimestamp 
+    <!-- Use variant that updates time stamp again. Otherwise git confused. -->
+    <!--<WriteLinesNoTimestamp--> 
+    <WriteLinesToFile 
       Condition="'$(Dll)'!=''" File="$(XmlPath)" Lines="$(XmlContent)"
       Overwrite="True" ContinueOnError="True" WriteOnlyWhenDifferent="True" />
   </Target>
