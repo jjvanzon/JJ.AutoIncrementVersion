@@ -58,7 +58,7 @@ Release Notes
 `2.1` Housekeeping  
 `2.2` Reduce memory leak in "probably updated nugets" process  
 `2.3` Total restructure, zero effect  
-`2.4` BuildNum exists => Directory.Build.props optional  
+`2.4` BuildNum exists? Directory.Build.props = optional  
 
 💬 Feedback 
 ============
