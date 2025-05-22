@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <Props_LoadTimejj>$([System.DateTime]::Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff"))</Props_LoadTimejj>
+    <Props_Loadedjj>True</Props_Loadedjj>
+    <Props_XmlRefjj>$(MSBuildProjectDirectory)/../BuildNum.xml</Props_XmlRefjj>
+    <Props_XmlImportedjj_Pre>$(XmlImportedjj)</Props_XmlImportedjj_Pre>
+  </PropertyGroup>
+  
+  <Import Project="$(MSBuildProjectDirectory)/../BuildNum.xml" Condition="'$(XmlImportedjj)'=='' And Exists('$(MSBuildProjectDirectory)/../BuildNum.xml')" />
+  
+  <PropertyGroup>
+    <Props_XmlImportedjj_Post>$(XmlImportedjj)</Props_XmlImportedjj_Post>
+  </PropertyGroup>
+</Project>
