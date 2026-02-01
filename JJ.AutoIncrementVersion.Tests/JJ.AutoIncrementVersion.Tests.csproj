@@ -5,6 +5,7 @@
     <TargetFrameworks>net10.0;net9.0;net8.0;net7.0;net6.0;net5.0;net461</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!--<BuildNum>0</BuildNum>-->
     <Version>2.3.$(BuildNum)</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -20,7 +21,7 @@
   </ItemGroup>
     
   <ItemGroup>
-    <PackageReference Include="JJ.AutoIncrementVersion" Version="2.4.2428" />
+    <PackageReference Include="JJ.AutoIncrementVersion" Version="2.4.2437" />
   </ItemGroup>
 
 </Project>
