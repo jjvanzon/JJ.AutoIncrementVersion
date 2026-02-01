@@ -52,12 +52,12 @@
     <!-- Report missing content -->
     <Error Text="Project tag should contain: $(DirPropsInnerContent)" File="$(DirPropsPath)" Code="JJ-AUTO-INC"
            Condition="
-           ('$(BuildNum)'=='' Or '$(BuildNum)'=='0') And 
+           $(BuildNumWasMissing) And 
            Exists('$(DirPropsPath)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
 
     <!-- Auto-create -->
-             <Message Condition="('$(BuildNum)'=='' Or '$(BuildNum)'=='0') And !Exists('$(DirPropsPath)')" Text="JJ-AUTO-INC INIT => $(DirPropsPath)" Importance="High" />
-    <WriteLinesToFile Condition="('$(BuildNum)'=='' Or '$(BuildNum)'=='0') And !Exists('$(DirPropsPath)')" File="$(DirPropsPath)" Lines="$(DirPropsContent)" ContinueOnError="True" />
+    <Message Condition="$(BuildNumWasMissing) And !Exists('$(DirPropsPath)')" Text="JJ-AUTO-INC INIT => $(DirPropsPath)" Importance="High" />
+    <WriteLinesToFile Condition="$(BuildNumWasMissing) And !Exists('$(DirPropsPath)')" File="$(DirPropsPath)" Lines="$(DirPropsContent)" ContinueOnError="True" />
   </Target>
   
   <!-- LOG -->
