@@ -97,7 +97,7 @@
   <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent">
 
     <PropertyGroup>
-      <!-- Default 0 -->
+      <!-- Start with 0 -->
       <BuildNum Condition="'$(BuildNum)'==''">0</BuildNum> 
       
       <!-- Increment -->
