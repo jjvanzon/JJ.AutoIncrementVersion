@@ -13,7 +13,7 @@
       package; packaging; pipeline; devops; autoincrement; semantic; versioning; assemblyversion; buildnumber; ci
     </PackageTags>
     <Authors>JJ van Zon</Authors>
-    <Copyright>Copyright © 2025 Jan Joost van Zon</Copyright>
+    <Copyright>Copyright © 2025 - 2026 Jan Joost van Zon</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <RepositoryUrl>https://github.com/jjvanzon/JJ.AutoIncrementVersion</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jjvanzon/JJ.AutoIncrementVersion</PackageProjectUrl>
