@@ -1,4 +1,5 @@
 <Project TreatAsLocalProperty="
+         BuildNumWasMissing;BuildNumWasZero;
          ProjDir;PackDir;XmlPath;DirPropsPath;BeforeTargets;
          DllProd;DllDev;Dll;
          DirPropsInnerContent;DirPropsContent;DirPropsReadOut;
@@ -12,6 +13,10 @@
           <XmlPath>$(ProjDir)../BuildNum.xml</XmlPath>
      <DirPropsPath>$(ProjDir)../Directory.Build.props</DirPropsPath>
     <BeforeTargets>BeforeBuild;BuildOnlySettings;PreBuildEvent;Restore;BuildGenerateSources;Pack</BeforeTargets>
+    <BuildNumWasMissing>False</BuildNumWasMissing>
+    <BuildNumWasMissing Condition="'$(BuildNum)'==''">True</BuildNumWasMissing>
+    <BuildNumWasZero>False</BuildNumWasZero>
+    <BuildNumWasZero Condition="'$(BuildNum)'==''">True</BuildNumWasZero>
   </PropertyGroup>
 
   <!-- DLL -->
@@ -69,6 +74,8 @@
     
     <PropertyGroup>
     <VariablesMessage>JJ-AUTO-INC VARS
+ BuildNumWasMissing = $(BuildNumWasMissing)
+ BuildNumWasZero = $(BuildNumWasZero)
  BuildNum = $(BuildNum)
  BeforeTargets = $(BeforeTargets)
  ProjDir = $(ProjDir)
