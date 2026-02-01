@@ -94,7 +94,7 @@
 
   <!-- SAVE -->
     
-  <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent">
+  <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent" Condition="'$(BuildNumWasZero)'=='False'">
 
     <PropertyGroup>
       <!-- Start with 0 -->
