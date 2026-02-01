@@ -16,7 +16,7 @@
     <BuildNumWasMissing>False</BuildNumWasMissing>
     <BuildNumWasMissing Condition="'$(BuildNum)'==''">True</BuildNumWasMissing>
     <BuildNumWasZero>False</BuildNumWasZero>
-    <BuildNumWasZero Condition="'$(BuildNum)'==''">True</BuildNumWasZero>
+    <BuildNumWasZero Condition="'$(BuildNum)'=='0'">True</BuildNumWasZero>
   </PropertyGroup>
 
   <!-- DLL -->
