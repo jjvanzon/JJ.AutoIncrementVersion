@@ -94,7 +94,7 @@
 
   <!-- SAVE -->
     
-  <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent" Condition="'$(BuildNumWasZero)'=='False'">
+  <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent" Condition="!$(BuildNumWasZero) Or !Exists($(XmlPath))">
 
     <PropertyGroup>
       <!-- Start with 0 -->
