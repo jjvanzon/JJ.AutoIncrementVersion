@@ -59,7 +59,7 @@ Release Notes
 `2.2` Reduce memory leak in "probably updated nugets" process  
 `2.3` Total restructure, zero effect  
 `2.4` BuildNum exists? Directory.Build.props = optional  
-`3.5` Optimize build speed by making BuildNum.xml inclusion optional.
+`3.5` BuildNum.xml inclusion = optional (for customization for performance)
 
 
 💬 Feedback 
