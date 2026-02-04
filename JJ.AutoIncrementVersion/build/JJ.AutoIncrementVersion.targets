@@ -1,5 +1,5 @@
 <Project TreatAsLocalProperty="
-         BuildNumWasMissing;BuildNumWasZero;
+         BuildNumWasMissing;BuildNumWasZero;BuildNumNew;
          ProjDir;PackDir;XmlPath;DirPropsPath;BeforeTargets;
          DllProd;DllDev;Dll;
          DirPropsInnerContent;DirPropsContent;DirPropsReadOut;
@@ -97,24 +97,27 @@
   <Target Name="JJ_AutoInc_Save" AfterTargets="PostBuildEvent" Condition="!$(BuildNumWasZero) Or !Exists($(XmlPath))">
 
     <PropertyGroup>
+      <!-- BuildNumNew may avoid some mid-build dirtying of the BuildNum variable. -->
+      <BuildNumNew>$(BuildNum)</BuildNumNew>
+      
       <!-- Start with 0 -->
-      <BuildNum Condition="'$(BuildNum)'==''">0</BuildNum> 
+      <BuildNumNew Condition="'$(BuildNumNew)'==''">0</BuildNumNew> 
       
       <!-- Increment -->
-      <BuildNum>$([MSBuild]::Add($(BuildNum), 1))</BuildNum> 
+      <BuildNumNew>$([MSBuild]::Add($(BuildNumNew), 1))</BuildNumNew> 
       
       <!-- Build new content -->
       <XmlContent>
         <Project>
           <PropertyGroup>
-            <BuildNum>$(BuildNum)</BuildNum>
+            <BuildNum>$(BuildNumNew)</BuildNum>
             <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
           </PropertyGroup>
         </Project>
       </XmlContent>
     </PropertyGroup>
     
-    <Message Text="JJ-AUTO-INC SAVE $(BuildNum) => .xml '$(XmlPath)'" Importance="High" />
+    <Message Text="JJ-AUTO-INC SAVE $(BuildNumNew) => .xml '$(XmlPath)'" Importance="High" />
 
     <!-- Save updated xml -->
     <WriteLinesToFile 
