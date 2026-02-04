@@ -30,6 +30,7 @@ Setup
 =====
 
 - Install the package.
+- Build twice for luck.
 - Start using `$(BuildNum)`.
 
 
