@@ -4,11 +4,11 @@
     <LangVersion>latest</LangVersion>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version Condition="'$(BuildNum)'==''">3.5.0</Version>
-    <Version Condition="'$(BuildNum)'!=''">3.5.$(BuildNum)</Version>
+    <Version Condition="'$(BuildNum)'==''">3.6.0</Version>
+    <Version Condition="'$(BuildNum)'!=''">3.6.$(BuildNum)</Version>
     <Description>Supporting package for JJ.AutoIncrementVersion. Not intended for direct use.</Description>
     <Authors>JJ van Zon</Authors>
-    <Copyright>Copyright © 2025 Jan Joost van Zon</Copyright>
+    <Copyright>Copyright © 2025 - 2026 Jan Joost van Zon</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>    
     <RepositoryUrl>https://github.com/jjvanzon/JJ.AutoIncrementVersion</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jjvanzon/JJ.AutoIncrementVersion</PackageProjectUrl>
