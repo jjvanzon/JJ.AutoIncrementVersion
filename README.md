@@ -60,8 +60,8 @@ Release Notes
 `2.2` Reduce memory leak in "probably updated nugets" process  
 `2.3` Total restructure, zero effect  
 `2.4` BuildNum exists? Directory.Build.props = optional  
-`3.5` BuildNum.xml inclusion = optional (for customization for performance)
-`3.6` Avoid modifying BuildNum prop mid-build, using temp prop to write BuildNum.xml 
+`3.5` BuildNum.xml inclusion = optional (for customization for performance)  
+`3.6` Avoid modifying BuildNum prop mid-build, using temp prop to write BuildNum.xml  
 
 💬 Feedback 
 ============
