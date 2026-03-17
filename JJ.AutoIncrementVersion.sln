@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11612.150 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJ.AutoIncrementVersion", "JJ.AutoIncrementVersion\JJ.AutoIncrementVersion.csproj", "{26D21849-C2A4-9DEC-1F21-3A8397EEAC21}"
 EndProject
@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		BuildNum.xml = BuildNum.xml
 		Directory.Build.props = Directory.Build.props
-		Directory.Build.targets = Directory.Build.targets
 		jj-icon-64x64-margin4.png = jj-icon-64x64-margin4.png
 		LICENSE.TXT = LICENSE.TXT
 		NuGet.config = NuGet.config

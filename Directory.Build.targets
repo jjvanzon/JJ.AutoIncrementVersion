@@ -1,5 +1,0 @@
-<Project>
-  <ItemGroup>
-    <None Remove="$(MSBuildProjectDirectory)/*.ncrunchproject" />
-  </ItemGroup>
-</Project>
