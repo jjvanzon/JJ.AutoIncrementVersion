@@ -50,6 +50,22 @@ Just:
 - And build.
 
  
+Bonus "Features" (Shush)
+========================
+
+- Logs could be "less screamy", but are perfect as is.
+- You can edit BuildNum.xml manually, but you probably won't want to.
+- Kills "up to date" build messages
+- Increments multiple times per solution build
+- Accidental scoping / multiple version number ranges
+- Disparate user sequence contention. (My excuse: the asterisk * had the same problem.)
+- Works solution-wide by referencing one project, or it doesn't.
+- Typo fails with irrelevant error; not my fault!
+- NCrunch will wake up at some point, eventually.
+- BuildNum zombie resurrection:  
+  "You uninstalled the package, but $(BuildNum) is still there!"
+
+
 Release Notes
 =============
 
@@ -62,6 +78,8 @@ Release Notes
 `2.4` BuildNum exists? Directory.Build.props = optional  
 `3.5` BuildNum.xml inclusion = optional (for customization for performance)  
 `3.6` Avoid modifying BuildNum prop mid-build, using temp prop to write BuildNum.xml  
+`4.2` Informative variable BuildNumWasFromXmljj  
+
 
 💬 Feedback 
 ============
