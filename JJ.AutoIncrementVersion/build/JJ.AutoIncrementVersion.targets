@@ -1,6 +1,6 @@
 <Project TreatAsLocalProperty="
-         BuildNumWasMissing;BuildNumWasZero;BuildNumNew;
          ProjDir;PackDir;XmlPath;DirPropsPath;BeforeTargets;
+         BuildNumWasMissing;BuildNumWasZero;DirPropsExists;BuildNumNew;
          DllProd;DllDev;Dll;
          DirPropsInnerContent;DirPropsContent;DirPropsReadOut;
          XmlReadOut;VariablesMessage;XmlContent">
@@ -17,6 +17,8 @@
     <BuildNumWasMissing Condition="'$(BuildNum)'==''">True</BuildNumWasMissing>
     <BuildNumWasZero>False</BuildNumWasZero>
     <BuildNumWasZero Condition="'$(BuildNum)'=='0'">True</BuildNumWasZero>
+    <DirPropsExists>False</DirPropsExists>
+    <DirPropsExists Condition="Exists('$(DirPropsPath)')">False</DirPropsExists>
   </PropertyGroup>
 
   <!-- DLL -->
@@ -45,19 +47,25 @@
     </PropertyGroup>
 
     <!-- Read existing -->
-    <ReadLinesFromFile File="$(DirPropsPath)" Condition="Exists('$(DirPropsPath)')" ContinueOnError="True" >
+    <ReadLinesFromFile Condition="$(DirPropsExists)" File="$(DirPropsPath)" ContinueOnError="True" >
       <Output TaskParameter="Lines" PropertyName="DirPropsReadOut" />
     </ReadLinesFromFile>
 
     <!-- Report missing content -->
     <Error Text="Project tag should contain: $(DirPropsInnerContent)" File="$(DirPropsPath)" Code="JJ-AUTO-INC"
            Condition="
-           $(BuildNumWasMissing) And 
-           Exists('$(DirPropsPath)') And !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
+           $(DirPropsExists) And $(BuildNumWasMissing) And 
+           !$(DirPropsReadOut.Contains($(DirPropsInnerContent)))" />
 
     <!-- Auto-create -->
-    <Message Condition="$(BuildNumWasMissing) And !Exists('$(DirPropsPath)')" Text="JJ-AUTO-INC INIT => $(DirPropsPath)" Importance="High" />
-    <WriteLinesToFile Condition="$(BuildNumWasMissing) And !Exists('$(DirPropsPath)')" File="$(DirPropsPath)" Lines="$(DirPropsContent)" ContinueOnError="True" />
+    <Message Condition="$(BuildNumWasMissing) And !$(DirPropsExists)" Text="JJ-AUTO-INC INIT => $(DirPropsPath)" Importance="High" />
+    <!-- 
+    NOTE: Mitigate file contention race condition:
+    Overwrite prevents duplicate content while ContinueOnError should skip when file in use.
+    -->
+    <WriteLinesToFile Condition="$(BuildNumWasMissing) And !$(DirPropsExists)" 
+                      File="$(DirPropsPath)" Lines="$(DirPropsContent)" 
+                      Overwrite="True" ContinueOnError="True" />
   </Target>
   
   <!-- LOG -->
@@ -84,6 +92,7 @@
  XmlPath = $(XmlPath)
  XmlReadOut = $(XmlReadOut)
  DirPropsPath = $(DirPropsPath)
+ DirPropsExists = $(DirPropsExists)
  DirPropsReadOut = $(DirPropsReadOut)
  Dll = $(Dll)
  DllProd = $(DllProd)
