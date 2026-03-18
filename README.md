@@ -64,21 +64,26 @@ Bonus "Features" (Shush)
 - NCrunch will wake up at some point, eventually.
 - BuildNum zombie resurrection:  
   "You uninstalled the package, but $(BuildNum) is still there!"
-
+- Custom build number: Pass `/p:BuildNum=<number>` to set the package version at build time.
+- But don't expect your original version number back.
 
 Release Notes
 =============
 
-`1.8` Initial release  
-`1.9` Fix file in use error  
-`2.0` Prevent IntelliSense rescan  
-`2.1` Housekeeping  
-`2.2` Reduce memory leak in "probably updated nugets" process  
-`2.3` Total restructure, zero effect  
-`2.4` BuildNum exists? Directory.Build.props = optional  
-`3.5` BuildNum.xml inclusion = optional (for customization for performance)  
-`3.6` Avoid modifying BuildNum prop mid-build, using temp prop to write BuildNum.xml  
-`4.2` Informative variable BuildNumWasFromXmljj  
+|       |                 |
+|-------|-----------------|
+| `1.8` | Initial release  
+| `1.9` | Fix file in use error  
+| `2.0` | Prevent IntelliSense rescan  
+| `2.1` | Housekeeping  
+| `2.2` | Reduce memory leak in "probably updated nugets" process  
+| `2.3` | Total restructure, zero effect  
+| `2.4` | BuildNum exists? Directory.Build.props = optional  
+| `3.5` | BuildNum.xml inclusion = optional (for customization for performance)  
+| `3.6` | Avoid modifying BuildNum prop mid-build, using temp prop to write BuildNum.xml  
+| `4.2` | Fix race-condition causing duplicating content in auto-created Directory.Build.props
+|       | Add variable BuildNumWasFromXmljj for future use
+
 
 
 💬 Feedback 
