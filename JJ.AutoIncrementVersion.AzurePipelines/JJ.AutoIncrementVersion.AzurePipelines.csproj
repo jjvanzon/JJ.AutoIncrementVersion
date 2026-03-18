@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version Condition="'$(BuildNum)'==''">4.2.0</Version>
+    <Version Condition="'$(BuildNum)'!=''">4.2.$(BuildNum)</Version>
+    <Description>Content-only project for version control on scripting for CI tasks related to JJ.AutoIncrementVersion.</Description>
+    <Authors>JJ van Zon</Authors>
+    <Copyright>Copyright © 2025 - 2026 Jan Joost van Zon</Copyright>
+  </PropertyGroup>
+
+</Project>

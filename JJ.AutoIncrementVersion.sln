@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.4.11612.150 stable
+VisualStudioVersion = 18.4.11612.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJ.AutoIncrementVersion", "JJ.AutoIncrementVersion\JJ.AutoIncrementVersion.csproj", "{26D21849-C2A4-9DEC-1F21-3A8397EEAC21}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJ.AutoIncrementVersion.Tasks", "JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj", "{286D0BC3-2C83-439E-9C2E-401E8B3B983E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JJ.AutoIncrementVersion.AzurePipelines", "JJ.AutoIncrementVersion.AzurePipelines\JJ.AutoIncrementVersion.AzurePipelines.csproj", "{B57DCCF9-B823-3651-A8E2-5ACE0E042DB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{286D0BC3-2C83-439E-9C2E-401E8B3B983E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57DCCF9-B823-3651-A8E2-5ACE0E042DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57DCCF9-B823-3651-A8E2-5ACE0E042DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57DCCF9-B823-3651-A8E2-5ACE0E042DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57DCCF9-B823-3651-A8E2-5ACE0E042DB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
