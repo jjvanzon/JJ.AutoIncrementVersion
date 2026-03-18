@@ -1,18 +1,18 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-    "id": "a8f5a385-72e1-43f7-bb03-4cc7892e3fd2",
-    "name": "ReadBuildNum",
-    "friendlyName": "Read Build Number",
-    "description": "Finds BuildNum.xml anywhere under the sources directory, reads the BuildNum value, and sets it as the pipeline variable BuildNum.",
+    "id": "7c3744c7-556b-41ed-a4f1-3d052338eb72",
+    "name": "BuildNum",
+    "friendlyName": "BuildNum",
+    "description": "Finds first BuildNum.xml, reads BuildNum element, stores it in BuildNum variable",
     "helpMarkDown": "Searches recursively for `BuildNum.xml` under `Build.SourcesDirectory`, then exposes its `<BuildNum>` element value as the pipeline variable `BuildNum`.",
     "category": "Utility",
     "author": "jjvanzon",
     "version": {
-        "Major": 1,
-        "Minor": 0,
+        "Major": 4,
+        "Minor": 3,
         "Patch": 0
     },
-    "instanceNameFormat": "Read Build Number",
+    "instanceNameFormat": "BuildNum",
     "inputs": [],
     "outputVariables": [
         {
