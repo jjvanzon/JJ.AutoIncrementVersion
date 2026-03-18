@@ -58,13 +58,12 @@ Bonus "Features" (Shush)
 - Kills "up to date" build messages
 - Increments multiple times per solution build
 - Accidental scoping / multiple version number ranges
-- Disparate user sequence contention. (My excuse: the asterisk * had the same problem.)
+- Multi-user sequence contention. (My excuse: the asterisk * had the same problem.)
 - Works solution-wide by referencing one project, or it doesn't.
 - Typo fails with irrelevant error; not my fault!
 - NCrunch will wake up at some point, eventually.
-- BuildNum zombie resurrection:  
-  "You uninstalled the package, but $(BuildNum) is still there!"
-- Custom build number: Pass `/p:BuildNum=<number>` to set the package version at build time.
+- BuildNum zombie resurrection: "You uninstalled the package, but $(BuildNum) is still there!"
+- Custom build number: Pass /p:BuildNum=`<number>` to set the package version at build time.
 - But don't expect your original version number back.
 
 Release Notes
