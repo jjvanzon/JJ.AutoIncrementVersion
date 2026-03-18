@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "jj-autoincrement-buildnum",
+    "name": "JJ AutoIncrement Version – Read Build Number",
+    "version": "1.0.0",
+    "publisher": "jjvanzon",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Pipeline task that finds BuildNum.xml anywhere in the sources directory and exposes its value as the pipeline variable BuildNum.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "files": [
+        {
+            "path": "ReadBuildNumTask"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "read-build-num-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "ReadBuildNumTask"
+            }
+        }
+    ]
+}

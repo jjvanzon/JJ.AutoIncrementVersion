@@ -1,4 +1,4 @@
-$root = "$(Build.SourcesDirectory)"
+$root = $env:BUILD_SOURCESDIRECTORY
 
 $file = Get-ChildItem -Path $root -Recurse -Filter "BuildNum.xml" -File |
         Select-Object -First 1
