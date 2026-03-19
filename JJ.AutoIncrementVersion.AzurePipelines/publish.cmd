@@ -1,5 +1,9 @@
 rem [ PRELIMINARY SCRIPT ]
 
+rem install node js
+
+winget install OpenJS.NodeJS.LTS
+
 rem Install npm = node package manager
 rem lts = long term support
 rem nvm = node version manager
