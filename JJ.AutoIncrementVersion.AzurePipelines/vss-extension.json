@@ -1,20 +1,29 @@
 {
   "manifestVersion": 1,
-  "id": "buildnum",
-  "name": "BuildNum",
+  "id": "jj-auto-increment-version-build-num",
+  "name": "JJ.AutoIncrementVersion.BuildNum",
   "version": "4.2.0",
   "publisher": "janjoostvanzon",
+  "description": "Finds BuildNum.xml, reads BuildNum element, stores in BuildNum variable",
+  "tags": [ 
+    "MSBuild", "auto", "increment", "version", "build", "assemblyinfo", "SemVer",
+    "package", "packaging", "pipeline", "devops", "autoincrement", "semantic", 
+    "versioning", "assemblyversion", "buildnumber", "ci", "autoinc", "jj", "jj.autoinc", "buildnum"
+  ],
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "description": "Finds BuildNum.xml, reads BuildNum element, stores value in BuildNum variable",
   "categories": [
     "Azure Pipelines"
   ],
   "icons": {
-    "default": "images/extension-icon.png"
+    "default": "jj-icon-128x128-margin8.png"
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/jjvanzon/JJ.AutoIncrementVersion"
   },
   "files": [
     {
@@ -25,6 +34,7 @@
     {
       "id": "build-num-task",
       "type": "ms.vss-distributed-task.task",
+      "description": "Finds BuildNum.xml, reads BuildNum element, stores value in BuildNum variable",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],

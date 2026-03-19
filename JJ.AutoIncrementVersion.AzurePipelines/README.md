@@ -13,16 +13,14 @@ Folder structure
 ```
 JJ.AutoIncrementVersion.AzurePipelines
 |
-|-- README.md               : this file
-|-- vss-extension.json      : extension manifest (packaging entry point)
-|
-|-- images         
-|   |-- extension-icon.png  : 128×128 PNG
+|-- README.md                   : this file
+|-- vss-extension.json          : extension manifest (packaging entry point)
+|-- jj-icon-128x128-margin8.png
 |
 |-- BuildNumTask
-    |-- task.json           : task definition (GUI inputs, execution, restrictions)
-    |-- icon.png            : 32×32 PNG
-    |-- BuildNum.ps1        : PowerShell script run by the agent
+    |-- task.json               : task definition (GUI inputs, execution, restrictions)
+    |-- icon.png                : 32×32 PNG
+    |-- BuildNum.ps1            : PowerShell script run by the agent
 ```
 
 Variables

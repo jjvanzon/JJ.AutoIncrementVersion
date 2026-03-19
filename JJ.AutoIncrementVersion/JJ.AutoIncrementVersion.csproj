@@ -9,8 +9,9 @@
     <Version Condition="'$(BuildNum)'!=''">4.2.$(BuildNum)</Version>
     <Description>We miss our * but we can now use %24(BuildNum)</Description>
     <PackageTags>
-      MSBuild; auto; increment; version; build; assemblyinfo; SemVer;
-      package; packaging; pipeline; devops; autoincrement; semantic; versioning; assemblyversion; buildnumber; ci
+      MSBuild auto increment version build assemblyinfo SemVer 
+      package packaging pipeline devops autoincrement semantic versioning assemblyversion buildnumber ci 
+      autoinc jj jj.autoinc buildnum
     </PackageTags>
     <Authors>JJ van Zon</Authors>
     <Copyright>Copyright © 2025 - 2026 Jan Joost van Zon</Copyright>
