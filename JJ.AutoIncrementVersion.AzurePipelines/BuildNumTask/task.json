@@ -3,7 +3,7 @@
     "id": "7c3744c7-556b-41ed-a4f1-3d052338eb72",
     "name": "BuildNum",
     "friendlyName": "BuildNum",
-    "description": "Finds first BuildNum.xml, reads BuildNum element, stores it in BuildNum variable",
+    "description": "Finds BuildNum.xml, reads BuildNum element, provides $(BuildNum) variable",
     "helpMarkDown": "Searches recursively for `BuildNum.xml` under `Build.SourcesDirectory`, then exposes its `<BuildNum>` element value as the pipeline variable `BuildNum`.",
     "category": "Utility",
     "author": "JJ van Zon",
