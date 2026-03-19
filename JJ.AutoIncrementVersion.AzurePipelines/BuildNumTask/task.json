@@ -6,7 +6,7 @@
     "description": "Finds first BuildNum.xml, reads BuildNum element, stores it in BuildNum variable",
     "helpMarkDown": "Searches recursively for `BuildNum.xml` under `Build.SourcesDirectory`, then exposes its `<BuildNum>` element value as the pipeline variable `BuildNum`.",
     "category": "Utility",
-    "author": "jjvanzon",
+    "author": "JJ van Zon",
     "version": {
         "Major": 4,
         "Minor": 3,
@@ -17,7 +17,7 @@
     "outputVariables": [
         {
             "name": "BuildNum",
-            "description": "The build number value read from BuildNum.xml."
+            "description": "Value of the BuildNum element read from  BuildNum.xml."
         }
     ],
     "execution": {

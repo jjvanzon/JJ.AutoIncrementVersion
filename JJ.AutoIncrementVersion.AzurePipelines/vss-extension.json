@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "id": "jj-autoincrement-version-azure-pipelines",
+  "id": "buildnum",
   "name": "BuildNum",
   "version": "4.2.0",
   "publisher": "janjoostvanzon",
@@ -9,7 +9,7 @@
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "description": "Finds BuildNum.xml, reads BuildNum element, stores in BuildNum variable",
+  "description": "Finds BuildNum.xml, reads BuildNum element, stores value in BuildNum variable",
   "categories": [
     "Azure Pipelines"
   ],
@@ -23,7 +23,7 @@
   ],
   "contributions": [
     {
-      "id": "read-build-num-task",
+      "id": "build-num-task",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"

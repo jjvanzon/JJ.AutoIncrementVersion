@@ -45,28 +45,7 @@ Variables
 Prerequisites (once per machine)
 --------------------------------
 
-nmp > how to install nmp itself?
-
-This is command line tooling for Azure DevOps, formerly VSTS, formerly TFS:
-
-```powershell
-npm install -g tfx-cli
-```
-
-Package the extension
----------------------
-
-Run from inside this folder (`JJ.AutoIncrementVersion.AzurePipelines\`):
-
-```powershell
-tfx extension create --manifest-globs vss-extension.json
-```
-
-This produces a `.vsix` file. To auto-increment the patch version each time:
-
-```powershell
-tfx extension create --manifest-globs vss-extension.json --rev-version
-```
+nmp > how to install nmp itself? > Add to publish.cmd.
 
 Publish to the Marketplace
 --------------------------
@@ -90,3 +69,13 @@ tfx extension publish --manifest-globs vss-extension.json --share-with yourOrgan
 2. Search for **Read Build Number**.
 3. Add it to the job — no inputs to configure.
 4. Reference the result in later steps as `$(BuildNum)`.
+
+References
+----------
+
+- Add a custom pipelines task extension (how to author task.json, tests, package):  
+  <https://learn.microsoft.com/azure/devops/extend/develop/add-build-task?view=azure-devops>
+- Extension manifest / vss-extension.json (manifest details):  
+  <https://learn.microsoft.com/azure/devops/extend/develop/manifest?view=azure-devops>
+- Package and publish extensions to the Visual Studio Marketplace (tfx usage, publishing steps):  
+  <https://learn.microsoft.com/azure/devops/extend/publish/overview?view=azure-devops>
