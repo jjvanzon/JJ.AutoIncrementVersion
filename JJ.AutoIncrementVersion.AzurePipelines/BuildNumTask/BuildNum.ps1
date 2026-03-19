@@ -9,7 +9,7 @@ if (-not $file) { throw "No BuildNum.xml found under $root." }
 $buildNumNode = $xml.SelectSingleNode("//BuildNum")
 
 if (-not $buildNumNode -or [string]::IsNullOrWhiteSpace($buildNumNode.InnerText)) {
-    throw "BuildNum element not found or empty in $($file.FullName)."
+    throw "BuildNum element not found or empty in $($file.FullName)."   
 }
 
 $buildNum = $buildNumNode.InnerText.Trim()
