@@ -1,3 +1,12 @@
+rem [ PRELIMINARY SCRIPT ]
+
+rem Install npm = node package manager
+rem lts = long term support
+rem nvm = node version manager
+
+nvm install lts
+nvm use lts 
+
 rem Installs command line tooling for Azure DevOps, formerly VSTS, formerly TFS
 rem Hopefully just skips if already installed
 

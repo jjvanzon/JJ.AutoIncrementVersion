@@ -73,9 +73,9 @@ tfx extension publish --manifest-globs vss-extension.json --share-with yourOrgan
 References
 ----------
 
-- Add a custom pipelines task extension (how to author task.json, tests, package):  
-  <https://learn.microsoft.com/azure/devops/extend/develop/add-build-task?view=azure-devops>
-- Extension manifest / vss-extension.json (manifest details):  
-  <https://learn.microsoft.com/azure/devops/extend/develop/manifest?view=azure-devops>
-- Package and publish extensions to the Visual Studio Marketplace (tfx usage, publishing steps):  
-  <https://learn.microsoft.com/azure/devops/extend/publish/overview?view=azure-devops>
+- [x] Add a custom pipelines task extension (how to author task.json, tests, package):  
+      <https://learn.microsoft.com/azure/devops/extend/develop/add-build-task?view=azure-devops>
+- [ ] Extension manifest / vss-extension.json (manifest details):  
+      <https://learn.microsoft.com/azure/devops/extend/develop/manifest?view=azure-devops>
+- [ ] Package and publish extensions to the Visual Studio Marketplace (tfx usage, publishing steps):  
+      <https://learn.microsoft.com/azure/devops/extend/publish/overview?view=azure-devops>
