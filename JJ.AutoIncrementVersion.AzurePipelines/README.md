@@ -42,11 +42,6 @@ Variables
 | `BuildNumTask\task.json` | `version.Major / Minor / Patch`
 | `vss-extension.json`     | `version`
 
-Prerequisites (once per machine)
---------------------------------
-
-nmp > how to install nmp itself? > Add to publish.cmd.
-
 Publish to the Marketplace
 --------------------------
 

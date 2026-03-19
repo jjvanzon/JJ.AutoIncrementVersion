@@ -1,17 +1,22 @@
 @echo off
 
-rem install node js
-
+echo(
+echo Install Node.js
+echo ---------------
+echo(
 winget install OpenJS.NodeJS.LTS
 
-rem Installs command line tooling for Azure DevOps, formerly VSTS, formerly TFS
-rem Hopefully just skips if already installed
+echo(
+echo Install Azure DevOps CLI
+echo ------------------------
+echo(
 rem -g = global
+call npm install -g tfx-cli
 
-npm install -g tfx-cli
-
-rem Create package
+echo(
+echo Create VSIX Package
+echo -------------------
+echo(
 rem --rev-version : increments version automatically
-rem Outputs a .visx file
-
-tfx extension create --manifest-globs vss-extension.json --rev-version
+rem call tfx extension create --manifest-globs vss-extension.json --rev-version
+call tfx extension create --manifest-globs vss-extension.json
