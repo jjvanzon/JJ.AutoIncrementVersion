@@ -66,6 +66,12 @@ Bonus "Features" (Shush)
 - Custom build number: Pass /p:BuildNum=`<number>` to set the package version at build time.
 - But don't expect your original version number back.
 
+
+Azure Pipelines Integration
+===========================
+
+[Visual Studio Marketplace BuildNum](https://marketplace.visualstudio.com/items?itemName=janjoostvanzon.buildnum) is a zero-config task that reads the `$(BuildNum)` variable for you.
+
 Release Notes
 =============
 
