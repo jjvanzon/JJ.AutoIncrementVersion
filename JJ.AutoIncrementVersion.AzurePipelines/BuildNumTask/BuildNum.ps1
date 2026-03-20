@@ -4,7 +4,7 @@ $file = Get-ChildItem -Path $root -Recurse -Filter "BuildNum.xml" -File |
 if (-not $file) { 
     throw "No BuildNum.xml found under $root or its sub-folders." 
 }
-Write-Host "Found BuildNum.xml: $($file.FullName)"
+Write-Host "Found BuildNum.xml = $($file.FullName)"
 
 [xml]$xml = Get-Content -Path $file.FullName -Raw
 $buildNumNode = $xml.SelectSingleNode("//BuildNum")
