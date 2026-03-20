@@ -82,7 +82,7 @@ Release Notes
 | `3.6` | Avoid modifying BuildNum prop mid-build, using temp prop to write BuildNum.xml  
 | `4.2` | Fix race-condition causing duplicating content in auto-created Directory.Build.props
 |       | Add variable BuildNumWasFromXmljj for future use
-
+| `4.3` | Azure Pipelines task for reading out BuildNum
 
 
 💬 Feedback 
