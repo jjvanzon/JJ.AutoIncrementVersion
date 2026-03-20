@@ -40,6 +40,19 @@ Variables
 | `BuildNumTask\task.json` | `version.Major / Minor / Patch`
 | `vss-extension.json`     | `version`
 
+### Package
+
+You might want to update the minor version in `vss-extension.json` and `task.json` first.
+
+To package it to a .vsix you can publish to the Visual Studio Marketplace, run:
+
+```
+.\pack.cmd
+```
+
+which you can find in this folder. It will prepare output the .vsix, but not publish it automatically.
+
+
 Publish to the Marketplace
 --------------------------
 
