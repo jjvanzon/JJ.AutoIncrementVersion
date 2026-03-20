@@ -24,9 +24,9 @@ JJ.AutoIncrementVersion.AzurePipelines
 ```
 
 Variables
---------------------
+---------
 
-| Variable                      | Description |
+| Name                          | Description |
 |-------------------------------|-------------|
 | `execution\PowerShell3`       | No Node.js or TypeScript needed for a pure PowerShell task
 | `$env:BUILD_SOURCESDIRECTORY` | This is PowerShell syntax that accesses the `$(Build.SourcesDirectory)` Azure Pipelines variable, inserted as an env var by the Pipeline agent.
@@ -40,7 +40,8 @@ Variables
 | `BuildNumTask\task.json` | `version.Major / Minor / Patch`
 | `vss-extension.json`     | `version`
 
-### Package
+Package
+-------
 
 You might want to update the minor version in `vss-extension.json` and `task.json` first.
 
@@ -51,6 +52,17 @@ To package it to a .vsix you can publish to the Visual Studio Marketplace, run:
 ```
 
 which you can find in this folder. It will prepare output the .vsix, but not publish it automatically.
+
+Prerequisites
+-------------
+
+VstsTaskSdk was installed under <.\BuildNumTask\ps_modules\VstsTaskSdk> with aid of the following command:
+
+```powershell
+Save-Module -Name VstsTaskSdk -Path .
+```
+
+If possible in the future this might be scripted in pack.cmd to update it every time you pack.
 
 
 Publish to the Marketplace
