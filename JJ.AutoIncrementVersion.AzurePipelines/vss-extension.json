@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "id": "jj-auto-increment-version-build-num",
+  "id": "buildnum",
   "name": "BuildNum",
   "version": "4.2.0",
   "publisher": "janjoostvanzon",
