@@ -68,6 +68,12 @@ If possible in the future this might be scripted in pack.cmd to update it every 
 Publish to the Marketplace
 --------------------------
 
+New vsix package versions can be uploaded manually via:
+
+<https://marketplace.visualstudio.com/manage/publishers/janjoostvanzon>
+
+There are options to script this:
+
 ```powershell
 tfx extension publish --manifest-globs vss-extension.json --share-with yourOrganization
 ```
@@ -75,11 +81,7 @@ tfx extension publish --manifest-globs vss-extension.json --share-with yourOrgan
 - While the extension is in development, keep `"extensionVisibility": "private"` (not in the manifest by default — private is the default when unpublished).
 - To make it public, add `"public"` to `"galleryFlags"` in `vss-extension.json`, or set visibility in the Publishing Portal.
 
-## Install in an Azure DevOps organization
-
-1. Go to **Organization Settings → Extensions**.
-2. Find the extension under **Extensions Shared With Me** (private) or search the Marketplace (public).
-3. Select **Get it free** / **Install**.
+Lateron might integrate into a deployment pipeline.
 
 References
 ----------
@@ -88,5 +90,5 @@ References
       <https://learn.microsoft.com/azure/devops/extend/develop/add-build-task?view=azure-devops>
 - [x] Extension manifest reference / vss-extension.json:  
       <https://learn.microsoft.com/azure/devops/extend/develop/manifest?view=azure-devops>
-- [ ] Package and publish extensions to the Visual Studio Marketplace (tfx usage, publishing steps):  
+- [x] Package and publish extensions to the Visual Studio Marketplace (tfx usage, publishing steps):  
       <https://learn.microsoft.com/azure/devops/extend/publish/overview?view=azure-devops>
