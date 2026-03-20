@@ -56,19 +56,12 @@ tfx extension publish --manifest-globs vss-extension.json --share-with yourOrgan
 2. Find the extension under **Extensions Shared With Me** (private) or search the Marketplace (public).
 3. Select **Get it free** / **Install**.
 
-## Use in a classic GUI pipeline
-
-1. Edit a pipeline and click **Add task**.
-2. Search for **Read Build Number**.
-3. Add it to the job — no inputs to configure.
-4. Reference the result in later steps as `$(BuildNum)`.
-
 References
 ----------
 
 - [x] Add a custom pipelines task extension (how to author task.json, tests, package):  
       <https://learn.microsoft.com/azure/devops/extend/develop/add-build-task?view=azure-devops>
-- [ ] Extension manifest / vss-extension.json (manifest details):  
+- [x] Extension manifest reference / vss-extension.json:  
       <https://learn.microsoft.com/azure/devops/extend/develop/manifest?view=azure-devops>
 - [ ] Package and publish extensions to the Visual Studio Marketplace (tfx usage, publishing steps):  
       <https://learn.microsoft.com/azure/devops/extend/publish/overview?view=azure-devops>
