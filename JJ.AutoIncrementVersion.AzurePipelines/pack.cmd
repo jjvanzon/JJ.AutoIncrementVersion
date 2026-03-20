@@ -18,5 +18,5 @@ echo Create VSIX Package
 echo -------------------
 echo(
 rem --rev-version : increments version automatically
-rem call tfx extension create --manifest-globs vss-extension.json --rev-version
-call tfx extension create --manifest-globs vss-extension.json
+call tfx extension create --manifest-globs vss-extension.json --rev-version
+rem call tfx extension create --manifest-globs vss-extension.json
