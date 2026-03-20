@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "buildnum",
   "name": "BuildNum",
-  "version": "4.3.4",
+  "version": "4.3.5",
   "publisher": "janjoostvanzon",
   "description": "Finds BuildNum.xml, reads BuildNum element, provides $(BuildNum) variable",
   "tags": [ 

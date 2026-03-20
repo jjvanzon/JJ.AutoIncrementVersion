@@ -18,4 +18,4 @@ if ([string]::IsNullOrWhiteSpace($buildNum)) {
 }
 Write-Host "BuildNum = $buildNum"
 
-Write-Host "##vso[task.setvariable variable=BuildNum;isOutput=true]$buildNum"
+Write-Host "##vso[task.setvariable variable=BuildNum]$buildNum"

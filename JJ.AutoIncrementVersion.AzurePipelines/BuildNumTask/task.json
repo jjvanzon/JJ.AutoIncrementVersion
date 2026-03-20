@@ -14,12 +14,6 @@
     },
     "instanceNameFormat": "BuildNum",
     "inputs": [],
-    "outputVariables": [
-        {
-            "name": "BuildNum",
-            "description": "Value of the BuildNum element read from  BuildNum.xml."
-        }
-    ],
     "execution": {
         "PowerShell3": {
             "target": "BuildNum.ps1"
