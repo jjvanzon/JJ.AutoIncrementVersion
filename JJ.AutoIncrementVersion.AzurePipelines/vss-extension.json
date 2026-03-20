@@ -4,7 +4,7 @@
   "name": "BuildNum",
   "version": "4.3.5",
   "publisher": "janjoostvanzon",
-  "description": "Finds BuildNum.xml, reads BuildNum element, provides $(BuildNum) variable",
+  "description": "Finds BuildNum.xml reads BuildNum element provides $(BuildNum) variable",
   "tags": [ 
     "MSBuild", "auto", "increment", "version", "build", "assemblyinfo", "SemVer",
     "package", "packaging", "pipeline", "devops", "autoincrement", "semantic", 
@@ -22,6 +22,9 @@
     },
     "support": {
       "uri": "https://jjvanzon.github.io/#-how-to-reach-me"
+    },
+    "license": {
+      "uri": "https://github.com/jjvanzon/JJ.AutoIncrementVersion/blob/main/LICENSE.TXT"
     }
   },
   "CustomerQnASupport": {
