@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "buildnum",
   "name": "BuildNum",
-  "version": "4.3.10",
+  "version": "4.3.11",
   "publisher": "janjoostvanzon",
   "description": "Finds BuildNum.xml | Reads BuildNum element | Offers $(BuildNum) variable",
   "tags": [ 
@@ -43,14 +43,14 @@
     "Azure Pipelines"
   ],
   "icons": {
-    "default": "jj-icon-128x128-margin8.png"
+    "default": "images/jj-icon-128x128-margin8.png"
   },
   "files": [
     {
       "path": "BuildNumTask"
     },
     {
-      "path": "screen-shot.png",
+      "path": "images",
       "addressable": true
     }
   ],
