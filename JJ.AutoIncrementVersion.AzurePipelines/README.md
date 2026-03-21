@@ -10,9 +10,6 @@ __Azure Pipelines__ task that:
 It has no parameters, only the output `$(BuildNum)` variable, so you can just drop it in and use it.  
 Intended for use with the [`JJ.AutoIncrementVersion`](https://www.nuget.org/packages/JJ.AutoIncrementVersion) nuget package for auto-incremental version numbers in __.NET__.  
 
-
-![Screen shot of Azure DevOps classic pipeline GUI demonstrating use of BuildNum task along with the MSBuild task](screen-shot.png)
-
 Goal
 ----
 
@@ -27,6 +24,8 @@ By passing `$(BuildNum)` to the `MSBuild Task` you can mitigate the problem. Fil
 ```
 
 This prevents the build from incrementing `BuildNum` multiple times.
+
+![Screen shot of Azure DevOps classic pipeline GUI demonstrating use of BuildNum task along with the MSBuild task](screen-shot.png)
 
 Alternative
 -----------

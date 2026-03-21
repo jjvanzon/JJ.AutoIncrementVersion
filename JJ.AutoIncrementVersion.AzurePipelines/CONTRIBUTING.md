@@ -34,12 +34,27 @@ Save-Module -Name VstsTaskSdk -Path .
 
 If possible in the future this might be scripted in `pack.cmd` to update it every time you pack.
 
+Version Number
+--------------
+
+### Task Version
+
+Consider updating the version in `task.json` before packaging.
+
+- These show up as `1.*`, `2.*`, etc. in the classic Azure Pipeline GUI.
+- If clients are supposed to silently update, leave the major version untouched.  
+  (e.g. `[ 1, 0, 0 ]` => `[1, 0, 1]`).  
+- If the client needs to make a conscious decision to use a newer one, update the major version  
+  (e.g. `[ 1, 0, 0 ]` => `[2, 0, 0]`).  
+
+### Extension Version
+
+Set major and minor version in `vss-extension.json` to something like `4.3`, following the version numbering of the `JJ.AutoIncrementVersion` NuGet package.  
+
+The third element of the `vss-extension.json` version is incremented automatically by the packaging script.
+
 Package
 -------
-
-You might want to manually update the major version in and `task.json` first (e.g. `[ 1, 0, 0 ]` => `[2, 0, 0]`).  
-Set major and minor version in `vss-extension.json` to something like `4.3`. 
-The third element of the `vss-extension.json` version is incremented automatically by the packaging script.
 
 To package it to a `.vsix` you can publish to the __Visual Studio Marketplace__, run:
 
@@ -47,8 +62,15 @@ To package it to a `.vsix` you can publish to the __Visual Studio Marketplace__,
 .\pack.cmd
 ```
 
-Which you can find in this folder. It will prepare output the `.vsix`, but not publish it automatically.
+Which you can find in this folder. This will produce a `private` version (for testing).
 
+To pack a `public` version use:
+
+```
+.\pack public
+```
+
+It will prepare output the `.vsix`, but not publish it automatically.
 
 Publish to the Marketplace
 --------------------------
@@ -59,9 +81,7 @@ New `.vsix` package versions can be uploaded manually via:
 
 There are options to script this, but that's not currently in use:
 
-```powershell
-tfx extension publish --manifest-globs vss-extension.json --share-with jjvanzon
-```
+`tfx extension publish --manifest-globs vss-extension.json --share-with jjvanzon`
 
 Lateron might integrate into a deployment pipeline.
 
