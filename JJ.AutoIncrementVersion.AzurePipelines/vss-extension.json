@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "buildnum",
   "name": "BuildNum",
-  "version": "4.3.8",
+  "version": "4.3.9",
   "publisher": "janjoostvanzon",
   "description": "Finds BuildNum.xml | Reads BuildNum element | Offers $(BuildNum) variable",
   "tags": [ 
@@ -48,6 +48,10 @@
   "files": [
     {
       "path": "BuildNumTask"
+    },
+    {
+      "path": "screen-shot.png",
+      "addressable": true
     }
   ],
   "contributions": [

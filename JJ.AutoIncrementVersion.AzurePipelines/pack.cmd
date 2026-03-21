@@ -1,8 +1,8 @@
+@echo off
+
 rem Usage: 
 rem pack.cmd        = private
 rem pack.cmd public = public (Marketplace-visible)
-
-@echo off
 
 echo(
 echo Install Node.js
