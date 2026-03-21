@@ -4,7 +4,7 @@
   "name": "BuildNum",
   "version": "4.3.8",
   "publisher": "janjoostvanzon",
-  "description": "Find BuildNum.xml | Read BuildNum element | Use $(BuildNum) variable",
+  "description": "Finds BuildNum.xml | Reads BuildNum element | Offers $(BuildNum) variable",
   "tags": [ 
     "MSBuild", "auto", "increment", "version", "build", "assemblyinfo", "SemVer",
     "package", "packaging", "pipeline", "devops", "autoincrement", "semantic", 
@@ -54,7 +54,7 @@
     {
       "id": "build-num-task",
       "type": "ms.vss-distributed-task.task",
-      "description": "Find BuildNum.xml | Read BuildNum element | Use $(BuildNum) variable",
+      "description": "Finds BuildNum.xml | Reads BuildNum element | Offers $(BuildNum) variable",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
