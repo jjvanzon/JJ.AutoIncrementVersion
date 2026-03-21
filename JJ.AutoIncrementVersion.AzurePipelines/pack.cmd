@@ -17,7 +17,7 @@ echo(
 echo Read BuildNum.xml
 echo -----------------
 echo(
-for /f %%i in ('powershell -NoProfile -ExecutionPolicy Bypass -Command "([xml](Get-Content '..\BuildNum.xml' -Raw)).Project.PropertyGroup.BuildNum"') do set BUILDNUM=%%i
+for /f %%i in ('powershell -NoProfile -ExecutionPolicy Bypass -File "BuildNumTask\Get-BuildNum.ps1" -Root ".."') do set BUILDNUM=%%i
 for /f %%i in ('powershell -NoProfile -ExecutionPolicy Bypass -Command "(Get-Content 'vss-extension.json' -Raw | ConvertFrom-Json).version"') do set CURRENT_VERSION=%%i
 for /f "tokens=1,2 delims=." %%a in ("%CURRENT_VERSION%") do (
   set MAJOR=%%a
