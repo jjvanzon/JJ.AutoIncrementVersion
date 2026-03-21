@@ -4,10 +4,10 @@ BuildNum
 __Azure Pipelines__ task that:
 
 - Finds `BuildNum.xml`
-- Reads `BuildNum` element
+- Reads the `BuildNum` element
 - Stores it in the `$(BuildNum)` variable
 
-It has no parameters, it only the output `$(BuildNum)` variable, so you can just drop it in and use it.  
+It has no parameters, only the output `$(BuildNum)` variable, so you can just drop it in and use it.  
 Intended for use with the [`JJ.AutoIncrementVersion`](https://www.nuget.org/packages/JJ.AutoIncrementVersion) nuget package for auto-incremental version numbers in __.NET__.  
 
 Goal
@@ -28,7 +28,7 @@ This prevents the build from incrementing `BuildNum` multiple times.
 Alternative
 -----------
 
-If you need something more specific, I can recommend the [Set variable with value from XML](https://marketplace.visualstudio.com/items?itemName=YodLabs.VariableTasks) task by [Yod Labs](https://marketplace.visualstudio.com/publishers/YodLabs). Using these parameters accomplishes something similar:
+If you need something more specific, I the [Set variable with value from XML](https://marketplace.visualstudio.com/items?itemName=YodLabs.VariableTasks) task by [Yod Labs](https://marketplace.visualstudio.com/publishers/YodLabs). Using these parameters accomplishes something similar:
 
 
 ```
