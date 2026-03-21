@@ -1,3 +1,7 @@
+rem Usage: 
+rem pack.cmd        = private
+rem pack.cmd public = public (Marketplace-visible)
+
 @echo off
 
 echo(
@@ -18,5 +22,8 @@ echo Create VSIX Package
 echo -------------------
 echo(
 rem --rev-version : increments version automatically
-call tfx extension create --manifest-globs vss-extension.json --rev-version
-rem call tfx extension create --manifest-globs vss-extension.json
+if /I "%~1"=="public" (
+  call tfx extension create --manifest-globs vss-extension.json --rev-version --overrides-file public.json
+) else (
+  call tfx extension create --manifest-globs vss-extension.json --rev-version
+)
