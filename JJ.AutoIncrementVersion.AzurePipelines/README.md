@@ -25,7 +25,7 @@ By passing `$(BuildNum)` to the `MSBuild Task` you can mitigate the problem. Fil
 
 This prevents the build from incrementing `BuildNum` multiple times.
 
-![Screen shot of Azure DevOps classic pipeline GUI using BuildNum and MSBuild tasks. Arrow points to MSBuild task field with /p:BuildNum=$(BuildNum)](screen-shot-with-arror.png)
+![Screen shot of Azure DevOps classic pipeline GUI using BuildNum and MSBuild tasks. Arrow points to MSBuild task field with /p:BuildNum=$(BuildNum)](images/screen-shot-with-arrow.png)
 
 Alternative
 -----------
