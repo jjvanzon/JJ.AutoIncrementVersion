@@ -4,7 +4,7 @@
   "name": "BuildNum",
   "version": "4.3.6",
   "publisher": "janjoostvanzon",
-  "description": "Finds BuildNum.xml reads BuildNum element provides $(BuildNum) variable",
+  "description": "Find BuildNum.xml | Read BuildNum element | Use $(BuildNum) variable",
   "tags": [ 
     "MSBuild", "auto", "increment", "version", "build", "assemblyinfo", "SemVer",
     "package", "packaging", "pipeline", "devops", "autoincrement", "semantic", 
@@ -22,9 +22,6 @@
     },
     "support": {
       "uri": "https://jjvanzon.github.io/#-how-to-reach-me"
-    },
-    "license": {
-      "uri": "https://github.com/jjvanzon/JJ.AutoIncrementVersion/blob/main/LICENSE.TXT"
     }
   },
   "CustomerQnASupport": {
@@ -54,7 +51,7 @@
     {
       "id": "build-num-task",
       "type": "ms.vss-distributed-task.task",
-      "description": "Finds BuildNum.xml reads BuildNum element provides $(BuildNum) variable",
+      "description": "Find BuildNum.xml | Read BuildNum element | Use $(BuildNum) variable",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
