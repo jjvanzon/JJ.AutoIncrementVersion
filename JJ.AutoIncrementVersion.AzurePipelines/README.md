@@ -30,7 +30,7 @@ This prevents the build from incrementing `BuildNum` multiple times.
 Alternative
 -----------
 
-If you need something more specific, I the [Set variable with value from XML](https://marketplace.visualstudio.com/items?itemName=YodLabs.VariableTasks) task by [Yod Labs](https://marketplace.visualstudio.com/publishers/YodLabs). Using these parameters accomplishes something similar:
+If you need something more specific, I recommend the [Set variable with value from XML](https://marketplace.visualstudio.com/items?itemName=YodLabs.VariableTasks) task by [Yod Labs](https://marketplace.visualstudio.com/publishers/YodLabs). Using these parameters accomplishes something similar:
 
 
 ```

@@ -46,15 +46,15 @@ Consider updating the version in `task.json` before packaging.
 
 - These show up as `1.*`, `2.*`, etc. in the classic Azure Pipeline GUI.
 - If clients are supposed to silently update, leave the major version untouched.  
-  (e.g. `[ 1, 0, 0 ]` => `[1, 0, 1]`).  
+  (e.g. `[ 1, 0, 13 ]` => `[1, 0, 14]`).  
 - If the client needs to make a conscious decision to use a newer one, update the major version  
-  (e.g. `[ 1, 0, 0 ]` => `[2, 0, 0]`).  
+  (e.g. `[ 1, 0, 13 ]` => `[2, 0, 14]`).  
 
 ### Extension Version
 
 Set major and minor version in `vss-extension.json` to something like `4.3`, following the version numbering of the `JJ.AutoIncrementVersion` NuGet package.  
 
-The third element of the `vss-extension.json` version is incremented automatically by the packaging script.
+The third element of the `vss-extension.json` version is incremented automatically by the packaging script, resulting in an extension version like `4.3.14`
 
 Package
 -------
