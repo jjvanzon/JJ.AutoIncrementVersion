@@ -18,7 +18,8 @@ JJ.AutoIncrementVersion.AzurePipelines
 |-- images
 |   |-- jj-icon-128x128-margin8.png : extension logo
 |
-|-- releases                        : vsix files = packaged Azure Pipelines extensions
+|-- test                            : vsix files for tests = packaged Azure Pipelines extensions
+|-- release                         : vsix files for release = packaged Azure Pipelines extensions
 |
 |-- BuildNumTask
     |-- task.json                   : task definition (GUI inputs, execution, restrictions)
@@ -59,7 +60,7 @@ The third element of the `vss-extension.json` version is incremented automatical
 Package
 -------
 
-To package it to a `.vsix` you can publish to the __Visual Studio Marketplace__, run:
+To package it to a `.vsix` that can be published to the __Visual Studio Marketplace__, run:
 
 ```
 .\pack.cmd
@@ -73,7 +74,7 @@ To pack a `public` version use:
 .\pack public
 ```
 
-It will prepare output the `.vsix`, but not publish it automatically.
+It will output the `.vsix`, but not publish it automatically.
 
 Publish to the Marketplace
 --------------------------
@@ -90,7 +91,6 @@ Lateron might integrate into a deployment pipeline.
 
 AI-generated tips to review:
 
-- While the extension is in development, keep `"extensionVisibility": "private"` (not in the manifest by default - private is the default when unpublished).
 - To make it public, add `"public"` to `"galleryFlags"` in `vss-extension.json`.
 
 Variables
@@ -113,3 +113,5 @@ References
   <https://learn.microsoft.com/azure/devops/extend/develop/manifest?view=azure-devops>
 - __Package and publish extensions__ to the Visual Studio Marketplace (tfx usage, publishing steps):  
   <https://learn.microsoft.com/azure/devops/extend/publish/overview?view=azure-devops>
+- __Visual Studio Marketplace: images in Markdown! - John Reilly__  
+  <https://johnnyreilly.com/images-in-markdown-for-azure-devops-marketplace>
