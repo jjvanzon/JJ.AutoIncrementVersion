@@ -6,8 +6,8 @@
   <PropertyGroup>
     <!-- Fallback conditions, 
          for when $(BuildNum) not defined, preventing build failure. -->
-    <Version Condition="'$(BuildNum)'==''">3.6.0</Version>
-    <Version Condition="'$(BuildNum)'!=''">3.6.$(BuildNum)</Version>
+    <Version Condition="'$(BuildNum)'==''">4.3.0</Version>
+    <Version Condition="'$(BuildNum)'!=''">4.3.$(BuildNum)</Version>
 
     <!--<TargetFrameworks>net9.0;net8.0;netstandard2.0</TargetFrameworks>-->
     <TargetFramework>net9.0</TargetFramework>
@@ -18,7 +18,7 @@
     <Copyright>Copyright © 2025 - 2026 Jan Joost van Zon</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>    
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
