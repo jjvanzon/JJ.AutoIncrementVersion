@@ -67,10 +67,10 @@ Bonus "Features" (Shush)
 - But don't expect your original version number back.
 
 
-Azure Pipelines Integration
-===========================
+Azure Pipelines
+===============
 
-[Visual Studio Marketplace BuildNum](https://marketplace.visualstudio.com/items?itemName=janjoostvanzon.buildnum) is a zero-config task that reads the `$(BuildNum)` variable for you.
+[Visual Studio Marketplace BuildNum](https://marketplace.visualstudio.com/items?itemName=janjoostvanzon.buildnum) is a zero-config task that reads the `$(BuildNum)` variable for you. It can be used at your whim, e.g. incorporate it into reference numbers displayed in Azure DevOps or pass it along to tasks for a reliable snapshot of BuildNum.
 
 Release Notes
 =============
