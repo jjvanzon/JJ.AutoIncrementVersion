@@ -5,8 +5,8 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <TargetFrameworks>net10.0;net9.0;net8.0;netstandard2.1;netstandard2.0</TargetFrameworks>
-    <Version Condition="'$(BuildNum)'==''">4.3.0</Version>
-    <Version Condition="'$(BuildNum)'!=''">4.3.$(BuildNum)</Version>
+    <Version Condition="'$(BuildNum)'==''">4.7.0</Version>
+    <Version Condition="'$(BuildNum)'!=''">4.7.$(BuildNum)</Version>
     <Description>We miss our * but we can now use %24(BuildNum)</Description>
     <PackageTags>
       MSBuild auto increment version build assemblyinfo SemVer 
@@ -39,11 +39,13 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
 
+    <!--
     <Content Include="..\JJ.AutoIncrementVersion.Tasks\bin\$(Configuration)\netstandard2.0\JJ.AutoIncrementVersion.Tasks.dll">
       <Pack>True</Pack>
       <PackagePath>\build</PackagePath>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
+    -->
   </ItemGroup>
 
   <ItemGroup>
@@ -59,9 +61,11 @@
     </Content>
   </ItemGroup>
 
+  <!--
   <ItemGroup>
     <ProjectReference 
       Include="..\JJ.AutoIncrementVersion.Tasks\JJ.AutoIncrementVersion.Tasks.csproj"
       PrivateAssets="all" />
   </ItemGroup>
+  -->
 </Project>

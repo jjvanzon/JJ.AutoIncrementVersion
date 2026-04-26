@@ -89,6 +89,7 @@ Release Notes
 | `4.2` | Fix race-condition causing duplicating content in auto-created Directory.Build.props
 |       | Add variable BuildNumWasFromXmljj for future use
 | `4.3` | Azure Pipelines task for reading out BuildNum
+| `4.7` | Leave out Task DLL (more secure)
 
 
 💬 Feedback 

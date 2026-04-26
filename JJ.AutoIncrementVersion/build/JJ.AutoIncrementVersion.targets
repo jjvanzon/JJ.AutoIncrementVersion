@@ -22,7 +22,8 @@
   </PropertyGroup>
 
   <!-- DLL -->
-  
+
+  <!--
   <PropertyGroup>
     <DllProd>$(PackDir)JJ.AutoIncrementVersion.Tasks.dll</DllProd>
     <DllDev>$(MSBuildThisFileDirectory)../../JJ.AutoIncrementVersion.Tasks/bin/$(Configuration)/netstandard2.0/JJ.AutoIncrementVersion.Tasks.dll</DllDev>
@@ -30,6 +31,7 @@
     <Dll Condition="Exists('$(DllDev)')">$(DllDev)</Dll>
   </PropertyGroup>
   <UsingTask TaskName="JJ.AutoIncrementVersion.Tasks.WriteLinesNoTimestamp" AssemblyFile="$(Dll)" Condition="'$(Dll)'!=''" />
+  -->
   
   <!-- DIR PROPS -->
 
